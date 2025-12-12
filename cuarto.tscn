@@ -1,0 +1,93 @@
+[gd_scene load_steps=8 format=3 uid="uid://g6jginj51gu3"]
+
+[ext_resource type="Shader" uid="uid://ndwmx7nrhea8" path="res://cuarto.gdshader" id="1_vv1q5"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_ieani"]
+size = Vector3(5, 0.1, 5)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7cdq5"]
+shader = ExtResource("1_vv1q5")
+shader_parameter/bg_color = Color(0.446068, 0.288317, 0.161083, 1)
+shader_parameter/offset = Vector2(0, 0)
+shader_parameter/bigStarSlow = 2.0
+shader_parameter/mediumStarSlow = 6.0
+shader_parameter/smallStarSlow = 8.0
+shader_parameter/smallStarAmount = 0.002
+shader_parameter/mediumStarAmount = 0.01
+shader_parameter/bigStarAmount = 0.02
+
+[sub_resource type="BoxMesh" id="BoxMesh_l7mbm"]
+lightmap_size_hint = Vector2i(29, 51)
+material = SubResource("ShaderMaterial_7cdq5")
+size = Vector3(5, 2, 0.2)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vv1q5"]
+shader = ExtResource("1_vv1q5")
+shader_parameter/bg_color = Color(0, 0, 0, 1)
+shader_parameter/offset = Vector2(0, 0)
+shader_parameter/bigStarSlow = 2.0
+shader_parameter/mediumStarSlow = 6.0
+shader_parameter/smallStarSlow = 8.0
+shader_parameter/smallStarAmount = 0.002
+shader_parameter/mediumStarAmount = 0.01
+shader_parameter/bigStarAmount = 0.02
+
+[sub_resource type="GDScript" id="GDScript_5scnh"]
+script/source = "extends MeshInstance3D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+
+func _on_area_3d_mouse_entered() -> void:
+	position.y = 3
+
+
+func _on_area_3d_mouse_exited() -> void:
+	position.y = 1
+"
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vv1q5"]
+size = Vector3(3.71826, 4.70264, 0.93457)
+
+[node name="Node3D" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_ieani")
+
+[node name="MeshInstance3D2" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.374, 0.949962, 0.0993148)
+size = Vector3(0.2, 2, 5)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="MeshInstance3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.114727, -0.357535, 0.0285548)
+operation = 2
+size = Vector3(0.754761, 1, 1)
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -2.419)
+mesh = SubResource("BoxMesh_l7mbm")
+surface_material_override/0 = SubResource("ShaderMaterial_vv1q5")
+script = SubResource("GDScript_5scnh")
+
+[node name="Area3D" type="Area3D" parent="MeshInstance3D4"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D4/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0302734, -1.37573, 0.0327148)
+shape = SubResource("BoxShape3D_vv1q5")
+
+[node name="MeshInstance3D5" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.374, 0.95, 0.099)
+size = Vector3(0.2, 2, 5)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="MeshInstance3D5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0881844, -0.357535, 0.0285548)
+operation = 2
+size = Vector3(0.503235, 1, 1)
+
+[connection signal="mouse_entered" from="MeshInstance3D4/Area3D" to="MeshInstance3D4" method="_on_area_3d_mouse_entered"]
+[connection signal="mouse_exited" from="MeshInstance3D4/Area3D" to="MeshInstance3D4" method="_on_area_3d_mouse_exited"]

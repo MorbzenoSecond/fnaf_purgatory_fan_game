@@ -1,0 +1,248 @@
+[gd_scene load_steps=21 format=3 uid="uid://bshdom2o35is3"]
+
+[ext_resource type="VideoStream" uid="uid://bvfci2rn0nwpi" path="res://_MConverter.eu_toy-bonnie-getting-attacked-by-withered-bonnie.ogv" id="1_b07fi"]
+[ext_resource type="Script" uid="uid://cs4u7a2rdbg5m" path="res://Scripts/main_menu.gd" id="1_x2ps0"]
+[ext_resource type="Shader" uid="uid://bgr1wy2nnqxgt" path="res://Main_menu.gdshader" id="2_qx8t1"]
+[ext_resource type="Texture2D" uid="uid://ddp4lvsotdeyu" path="res://art/assets/Continue.png" id="3_5kukc"]
+[ext_resource type="Texture2D" uid="uid://cfygts7p20eu6" path="res://art/assets/menu.jpg" id="3_hv5cx"]
+[ext_resource type="AudioStream" uid="uid://55auxh3toldk" path="res://art/music/PURGATORY.mp3" id="4_5kukc"]
+[ext_resource type="Texture2D" uid="uid://dgj2ymq7c2b4t" path="res://art/assets/TITTLE.png" id="5_8ovav"]
+[ext_resource type="Texture2D" uid="uid://bmp4hecna20hv" path="res://art/assets/new game.png" id="6_8ovav"]
+[ext_resource type="Texture2D" uid="uid://fwolicdxrwy1" path="res://art/assets/Options.png" id="8_56ax1"]
+[ext_resource type="Shader" uid="uid://dm1coocdbc5r" path="res://test.gdshader" id="9_hv5cx"]
+[ext_resource type="Texture2D" uid="uid://byraxynwspmhs" path="res://art/office_6.jpg" id="10_56ax1"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_r1jqq"]
+shader = ExtResource("2_qx8t1")
+shader_parameter/mask_type = 4
+shader_parameter/curve = 0.323
+shader_parameter/color_offset = 2.375e-08
+shader_parameter/mask_brightness = 0.235
+shader_parameter/aspect = 0.524
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_p42dv"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qx8t1"]
+shader = ExtResource("2_qx8t1")
+shader_parameter/mask_type = 2
+shader_parameter/curve = 0.435
+shader_parameter/color_offset = 2.375e-08
+shader_parameter/mask_brightness = 0.236
+shader_parameter/aspect = 0.566
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ljai8"]
+shader = ExtResource("9_hv5cx")
+shader_parameter/noise = ExtResource("10_56ax1")
+shader_parameter/line_color_a = Color(0, 0, 0, 0)
+shader_parameter/line_color_b = Color(0, 0, 0, 1)
+shader_parameter/back_color = Color(0.270588, 0, 0, 0)
+shader_parameter/line_threshold = 0.79
+shader_parameter/speed = 0.1
+shader_parameter/line_length = 1000.0
+shader_parameter/angle = 90.0
+
+[sub_resource type="Animation" id="Animation_r1jqq"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Presentacion:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("backgorund:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_56ax1"]
+resource_name = "back_to_game"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("backgorund:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(1, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0.282353)]
+}
+
+[sub_resource type="Animation" id="Animation_ljai8"]
+resource_name = "fade_out"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("backgorund:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.366667, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.0156863, 0.0156863, 0.0156863, 0), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_p42dv"]
+resource_name = "welcome"
+length = 15.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Presentacion:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.633333, 2.8, 5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(0.643137, 0.643137, 0.643137, 0.67451), Color(0.643137, 0.643137, 0.643137, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("backgorund:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 6, 15),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 1), Color(0, 0, 0, 0.282353)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hv5cx"]
+_data = {
+&"RESET": SubResource("Animation_r1jqq"),
+&"back_to_game": SubResource("Animation_56ax1"),
+&"fade_out": SubResource("Animation_ljai8"),
+&"welcome": SubResource("Animation_p42dv")
+}
+
+[node name="Main_menu" type="Node3D"]
+script = ExtResource("1_x2ps0")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+modulate = Color(0.674815, 0.674815, 0.674815, 1)
+self_modulate = Color(0.168627, 0.168627, 0.168627, 0.819608)
+show_behind_parent = true
+material = SubResource("ShaderMaterial_r1jqq")
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0.193737, 0.164934, 0.120017, 1)
+
+[node name="Menu" type="Sprite2D" parent="ColorRect"]
+position = Vector2(576, 324)
+scale = Vector2(0.9, 0.9)
+texture = ExtResource("3_hv5cx")
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="ColorRect"]
+visible = false
+material = SubResource("ShaderMaterial_p42dv")
+layout_mode = 0
+offset_right = 1151.0
+offset_bottom = 650.0
+stream = ExtResource("1_b07fi")
+autoplay = true
+expand = true
+loop = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_5kukc")
+autoplay = true
+
+[node name="nights, number" type="Label" parent="."]
+offset_left = 56.0
+offset_top = 416.0
+offset_right = 313.0
+offset_bottom = 461.0
+theme_override_font_sizes/font_size = 32
+text = "Noche numero..."
+
+[node name="Tittle" type="Sprite2D" parent="."]
+visible = false
+material = SubResource("ShaderMaterial_qx8t1")
+position = Vector2(576, 88)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("5_8ovav")
+
+[node name="Button" type="Button" parent="."]
+offset_left = 48.0
+offset_top = 552.0
+offset_right = 1056.0
+offset_bottom = 860.0
+scale = Vector2(0.3, 0.3)
+icon = ExtResource("6_8ovav")
+flat = true
+
+[node name="Continue" type="Button" parent="."]
+offset_left = 48.0
+offset_top = 472.0
+offset_right = 1056.0
+offset_bottom = 780.0
+scale = Vector2(0.3, 0.3)
+theme_override_font_sizes/font_size = 40
+icon = ExtResource("3_5kukc")
+flat = true
+icon_alignment = 1
+
+[node name="Options_button" type="Button" parent="."]
+offset_left = 844.0
+offset_top = 552.0
+offset_right = 1852.0
+offset_bottom = 860.0
+scale = Vector2(0.3, 0.3)
+icon = ExtResource("8_56ax1")
+flat = true
+
+[node name="backgorund" type="ColorRect" parent="."]
+visible = false
+offset_right = 1151.0
+offset_bottom = 648.0
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Lines_effect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_ljai8")
+offset_right = 1152.0
+offset_bottom = 648.0
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_hv5cx")
+}
+
+[node name="Presentacion" type="Label" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+offset_left = 295.0
+offset_top = 296.0
+offset_right = 865.0
+offset_bottom = 357.0
+theme_override_font_sizes/font_size = 44
+text = "Purgatory team presenta..."
+
+[connection signal="mouse_entered" from="Continue" to="." method="_on_continue_mouse_entered"]
+[connection signal="pressed" from="Continue" to="." method="_on_button_pressed"]
+[connection signal="toggled" from="Continue" to="." method="_on_continue_toggled"]
+[connection signal="pressed" from="Options_button" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="Options_button" to="." method="_on_options_button_pressed"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

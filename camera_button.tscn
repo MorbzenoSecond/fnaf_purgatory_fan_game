@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://r12ya2e1a5lu"]
+
+[ext_resource type="Script" uid="uid://j5ot1nl2t8gr" path="res://Scripts/camera_button.gd" id="1_k1vnv"]
+[ext_resource type="Texture2D" uid="uid://bvc10j6gfe14r" path="res://art/ejemplo.png" id="2_rp7og"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_yc8u8"]
+size = Vector3(1.6, 1.1, 0)
+
+[node name="Camera_button" type="Area3D"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+script = ExtResource("1_k1vnv")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+texture = ExtResource("2_rp7og")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_yc8u8")
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]

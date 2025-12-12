@@ -1,0 +1,103 @@
+[gd_scene load_steps=13 format=3 uid="uid://l1rgdn4exrgl"]
+
+[ext_resource type="PackedScene" uid="uid://bi0lpqxgs5u72" path="res://art/3D models/rooms/office/Oficina.glb" id="1_ajbn3"]
+[ext_resource type="Material" uid="uid://briq33lcmymeg" path="res://art/mob_body.tres" id="2_2uqby"]
+[ext_resource type="Script" uid="uid://bn40tixghoa3u" path="res://Scripts/oficina.gd" id="2_u7jcj"]
+[ext_resource type="Script" uid="uid://k7bw33ymff25" path="res://Scripts/nose_area.gd" id="3_2uqby"]
+[ext_resource type="AudioStream" uid="uid://c0ew5eyxywpku" path="res://art/Sound_effects/fedi.mp3" id="4_klroo"]
+[ext_resource type="AudioStream" uid="uid://04c180f7bhdj" path="res://art/Sound_effects/phone-ring-office-77mel-191019-62216.mp3" id="6_s5jjy"]
+[ext_resource type="PackedScene" uid="uid://dr7f26qe6w3ts" path="res://art/3D models/Objects/button.glb" id="7_du2fo"]
+[ext_resource type="PackedScene" uid="uid://cssqgp7r2cxb" path="res://art/3D models/Objects/door.tscn" id="8_kcccv"]
+[ext_resource type="AudioStream" uid="uid://bwnmoheg5ylgl" path="res://art/Sound_effects/DOOR CLOSE (mp3cut.net).mp3" id="9_kcccv"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_klroo"]
+size = Vector3(3, 2, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_u7jcj"]
+size = Vector3(21, 1, 22)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_du2fo"]
+size = Vector3(17, 23, 0.001)
+
+[node name="Oficina" instance=ExtResource("1_ajbn3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -9, -16)
+script = ExtResource("2_u7jcj")
+
+[node name="Node401" parent="Node0" index="400"]
+visible = false
+
+[node name="Node402" parent="Node0" index="401"]
+visible = false
+
+[node name="Node412" parent="Node0" index="411"]
+material_override = ExtResource("2_2uqby")
+
+[node name="Nose_area" type="Area3D" parent="." index="1"]
+script = ExtResource("3_2uqby")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Nose_area" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 591, 83.5, 323)
+shape = SubResource("BoxShape3D_klroo")
+
+[node name="Fredy_noice" type="AudioStreamPlayer3D" parent="." index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 591, 83, 320)
+stream = ExtResource("4_klroo")
+volume_db = 55.757
+
+[node name="Phone_audio" type="AudioStreamPlayer3D" parent="." index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 558, 83, 336)
+stream = ExtResource("6_s5jjy")
+volume_db = 42.021
+unit_size = 20.39
+autoplay = true
+max_distance = 186.18
+panning_strength = 2.17
+emission_angle_enabled = true
+
+[node name="Area3D" type="Area3D" parent="." index="4"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" index="0"]
+transform = Transform3D(0.866025, 0.12941, 0.482963, 0, 0.965926, -0.258819, -0.5, 0.224144, 0.836516, 556.424, 77.1294, 335.332)
+shape = SubResource("BoxShape3D_u7jcj")
+
+[node name="Phone_light" type="OmniLight3D" parent="." index="5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 554, 85, 329)
+light_intensity_lumens = 4645.83
+light_temperature = 8104.0
+light_color = Color(0.487858, 0, 0.000626494, 1)
+light_energy = 11.667
+light_indirect_energy = 3.5
+light_volumetric_fog_energy = 2.083
+omni_range = 16.246
+omni_attenuation = 2.354
+
+[node name="DoorButtonLights" type="OmniLight3D" parent="." index="6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 396, 126, 111)
+light_color = Color(0.905882, 0, 0.121569, 1)
+omni_range = 32.635
+omni_attenuation = 1.729
+
+[node name="button" parent="." index="7" instance=ExtResource("7_du2fo")]
+transform = Transform3D(1.5, 0, 0, 0, 2.5, 0, 0, 0, 1, -155, -171, -216)
+
+[node name="door" parent="." index="8" instance=ExtResource("8_kcccv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 99, 1, -208)
+
+[node name="Door_button" type="Area3D" parent="." index="9"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 405, 120, 115)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Door_button" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 8, -0.499496)
+shape = SubResource("BoxShape3D_du2fo")
+debug_color = Color(0.970935, 0, 0.45137, 0.42)
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." index="10"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 460, 95, 108)
+stream = ExtResource("9_kcccv")
+volume_db = 18.586
+
+[connection signal="input_event" from="Nose_area" to="Nose_area" method="_on_input_event"]
+[connection signal="finished" from="Phone_audio" to="." method="_on_phone_audio_finished"]
+[connection signal="input_event" from="Area3D" to="." method="_on_area_3d_input_event"]
+[connection signal="input_event" from="Area3D" to="Nose_area" method="_on_area_3d_input_event"]
+[connection signal="input_event" from="Door_button" to="." method="_on_door_button_input_event"]

@@ -1,0 +1,157 @@
+[gd_scene load_steps=15 format=3 uid="uid://86q8xbx5cdw8"]
+
+[ext_resource type="Script" uid="uid://bec0q5qidwjad" path="res://Scripts/main_ofice.gd" id="1_jsk3o"]
+[ext_resource type="PackedScene" uid="uid://c4hadpu0yequp" path="res://UI.tscn" id="4_i5arm"]
+[ext_resource type="Script" uid="uid://brx2r4n0gcv8j" path="res://Scripts/camera_3d.gd" id="4_jka67"]
+[ext_resource type="PackedScene" uid="uid://6iwhp1lg78m7" path="res://cameras_view.tscn" id="4_wc5p8"]
+[ext_resource type="PackedScene" uid="uid://ctugxa4bg1cq6" path="res://office.tscn" id="5_i5arm"]
+[ext_resource type="Script" uid="uid://c5j8hh0wkmraq" path="res://Scripts/camera_pad.gd" id="5_jka67"]
+[ext_resource type="AudioStream" uid="uid://bkq53y1awjlc5" path="res://art/Graveyard Shift at Freddy's Old dog, New tricks. [Night five].mp3" id="5_wc5p8"]
+[ext_resource type="Texture2D" uid="uid://byraxynwspmhs" path="res://art/office_6.jpg" id="6_i5arm"]
+[ext_resource type="PackedScene" uid="uid://cpbqhi2dy6eb7" path="res://animatronic_1.tscn" id="9_4arys"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_noarx"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="Environment" id="Environment_jka67"]
+background_energy_multiplier = 0.05
+background_intensity = 11481.5
+ambient_light_energy = 0.41
+reflected_light_source = 2
+tonemap_mode = 4
+ssr_fade_in = 0.424264
+glow_enabled = true
+glow_normalized = true
+glow_intensity = 0.0
+glow_strength = 1.19
+fog_light_color = Color(0.0784314, 0.0901961, 0, 1)
+fog_light_energy = 0.1
+fog_sky_affect = 0.926
+fog_height = -56.89
+fog_height_density = 0.8889
+adjustment_brightness = 0.93
+adjustment_contrast = 1.22
+adjustment_saturation = 0.7
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jka67"]
+size = Vector3(2.90869, 28.4803, 15.4988)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wc5p8"]
+albedo_texture = ExtResource("6_i5arm")
+
+[sub_resource type="BoxMesh" id="BoxMesh_jsk3o"]
+size = Vector3(300, 1, 300)
+
+[node name="office" type="Node3D"]
+script = ExtResource("1_jsk3o")
+
+[node name="SubViewport" type="SubViewport" parent="."]
+transparent_bg = true
+handle_input_locally = false
+render_target_update_mode = 4
+
+[node name="Security_camera" type="Camera3D" parent="SubViewport"]
+transform = Transform3D(0.48481, -0.274624, 0.830386, 0, 0.949426, 0.313993, -0.87462, -0.152227, 0.460291, 3840.09, 246.06, 751.277)
+
+[node name="Player pov" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 627.773, 145, 424.212)
+fov = 66.2
+near = 0.038
+script = ExtResource("4_jka67")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(6.42875, 0.236879, -4.09773, 0, 4.3759, 0.836228, 3.86279, -0.394233, 6.81977, 667.827, 134.566, 336.921)
+texture = SubResource("ViewportTexture_noarx")
+
+[node name="Lights" type="Node3D" parent="."]
+
+[node name="SpotLight3D" type="OmniLight3D" parent="Lights"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 629.258, 199.761, 276.839)
+rotation_edit_mode = 1
+layers = 1048575
+light_intensity_lumens = 100.0
+light_temperature = 15000.0
+light_energy = 9.661
+light_size = 0.214
+shadow_enabled = true
+shadow_blur = 5.0
+distance_fade_begin = 62.63
+distance_fade_shadow = 52.7
+distance_fade_length = 1299.9
+omni_range = 258.902
+omni_attenuation = 0.721
+omni_shadow_mode = 0
+
+[node name="SpotLight3D2" type="OmniLight3D" parent="Lights"]
+transform = Transform3D(0.741242, -0.415807, 0.526939, 0.297371, 0.907207, 0.297566, -0.601773, -0.0638722, 0.796109, 3236.94, 249.635, 817.813)
+light_temperature = 12875.0
+light_energy = 7.222
+light_indirect_energy = 7.5
+light_volumetric_fog_energy = 10.555
+light_size = 0.348
+light_specular = 3.626
+shadow_enabled = true
+shadow_bias = 2.689
+shadow_normal_bias = 3.054
+shadow_transmittance_bias = 4.907
+omni_range = 1978.44
+omni_attenuation = 1.383
+omni_shadow_mode = 0
+
+[node name="SpotLight3D4" type="SpotLight3D" parent="Lights"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1094, 49, 255)
+rotation_edit_mode = 2
+spot_range = 400.0
+spot_attenuation = 0.78
+spot_angle = 24.3
+spot_angle_attenuation = 9.51364
+
+[node name="Ui" type="Node3D" parent="."]
+
+[node name="CanvasLayer" parent="Ui" instance=ExtResource("4_i5arm")]
+
+[node name="Camera pad" type="Sprite3D" parent="Ui/CanvasLayer"]
+transform = Transform3D(7.5, 0, 0, 0, 4.4, 0, 0, 0, 8, 627.773, 159, 403.618)
+texture = SubResource("ViewportTexture_noarx")
+script = ExtResource("5_jka67")
+
+[node name="cameras_view" parent="Ui/CanvasLayer/Camera pad" instance=ExtResource("4_wc5p8")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0.800003, -1.59091, 0.25)
+
+[node name="office" parent="." instance=ExtResource("5_i5arm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.8, 38.6932, 24.6514)
+rotation_edit_mode = 2
+top_level = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_jka67")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_wc5p8")
+autoplay = true
+
+[node name="Switches" type="Node3D" parent="."]
+
+[node name="Ventilation light" type="Area3D" parent="Switches"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Switches/Ventilation light"]
+transform = Transform3D(0.990007, -0.141022, 0, 0.141022, 0.990007, 0, 0, 0, 1, 910.352, 121.642, 257.438)
+shape = SubResource("BoxShape3D_jka67")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 776, 40, 256)
+material_override = SubResource("StandardMaterial3D_wc5p8")
+mesh = SubResource("BoxMesh_jsk3o")
+
+[node name="Rooms" type="Node3D" parent="."]
+
+[node name="Node3D" type="Node3D" parent="Rooms"]
+
+[node name="Marker3D" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3228, 193, 657)
+
+[node name="Animatronics" type="Node3D" parent="."]
+
+[node name="animatronic_1" parent="Animatronics" instance=ExtResource("9_4arys")]
+
+[connection signal="input_event" from="Switches/Ventilation light" to="Player pov" method="_on_ventilation_light_input_event"]

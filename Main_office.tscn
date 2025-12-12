@@ -1,0 +1,514 @@
+[gd_scene load_steps=38 format=3 uid="uid://86q8xbx5cdw8"]
+
+[ext_resource type="Script" uid="uid://bec0q5qidwjad" path="res://Scripts/main_ofice.gd" id="1_35clb"]
+[ext_resource type="Shader" uid="uid://chlab8utqvmy8" path="res://node_3d.gdshader" id="2_2i7oq"]
+[ext_resource type="PackedScene" uid="uid://l1rgdn4exrgl" path="res://oficina.tscn" id="2_khgtf"]
+[ext_resource type="VideoStream" uid="uid://l0n7di3qt5bd" path="res://_MConverter.eu_G0gDcngXwAAurVA.ogv" id="3_2i7oq"]
+[ext_resource type="PackedScene" uid="uid://c4hadpu0yequp" path="res://UI.tscn" id="4_p8714"]
+[ext_resource type="PackedScene" uid="uid://6iwhp1lg78m7" path="res://cameras_view.tscn" id="5_6uyba"]
+[ext_resource type="AudioStream" uid="uid://bkq53y1awjlc5" path="res://art/Sound_effects/Graveyard Shift at Freddy's Old dog, New tricks. [Night five].mp3" id="7_6os8p"]
+[ext_resource type="Texture2D" uid="uid://uhv0nwnxtskv" path="res://art/assets/1.png" id="7_q7uhc"]
+[ext_resource type="Texture2D" uid="uid://cc520sceueasu" path="res://art/assets/12.png" id="8_7n01s"]
+[ext_resource type="Texture2D" uid="uid://byraxynwspmhs" path="res://art/office_6.jpg" id="8_gtm6x"]
+[ext_resource type="Texture2D" uid="uid://dq5pcl65k4h3q" path="res://art/assets/Sentricore.png" id="8_p8714"]
+[ext_resource type="PackedScene" uid="uid://cpbqhi2dy6eb7" path="res://animatronic_1.tscn" id="9_vhv01"]
+[ext_resource type="Texture2D" uid="uid://bsfngrho0c47m" path="res://art/assets/2.png" id="9_vi5m7"]
+[ext_resource type="Texture2D" uid="uid://da15xhq50my84" path="res://art/assets/3.png" id="10_0mth8"]
+[ext_resource type="PackedScene" uid="uid://ryfjklub0586" path="res://teclas.tscn" id="10_5j74h"]
+[ext_resource type="Texture2D" uid="uid://dnoklghddasma" path="res://art/assets/4.png" id="11_ddk3q"]
+[ext_resource type="Texture2D" uid="uid://cu20dnh0nypr2" path="res://art/assets/5.png" id="12_akjjk"]
+[ext_resource type="AudioStream" uid="uid://qd07ufaylwnu" path="res://art/Sound_effects/ambience.mp3" id="12_khgtf"]
+[ext_resource type="Texture2D" uid="uid://br2mhletysbu2" path="res://art/assets/6.png" id="13_ahq5o"]
+[ext_resource type="Texture2D" uid="uid://d02ialuag7kxn" path="res://art/assets/AM.png" id="14_xfeuu"]
+
+[sub_resource type="Animation" id="Animation_35clb"]
+resource_name = "new_animation"
+length = 10.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 4.16667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Ui/Hours System:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 6.56667),
+"transitions": PackedFloat32Array(-2, 2),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(450, 230)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../Ui/Hours System:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 9.8),
+"transitions": PackedFloat32Array(-0.5, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.5, 1.5)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ColorRect:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_2i7oq"]
+resource_name = "RESET"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Ui/Hours System:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Ui/Hours System:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ColorRect:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ColorRect:color")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../AudioStreamPlayer:volume_db")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-7.615]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../Phone_guy:volume_db")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("../Ui/Hours System:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_q7uhc"]
+resource_name = "start_shift"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(1.03333, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../AudioStreamPlayer:volume_db")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.0333333, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-40.0, -7.615]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../Phone_guy:volume_db")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-80.0, 0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../Ui/Hours System:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(1.93333, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_khgtf"]
+_data = {
+&"Finish_night": SubResource("Animation_35clb"),
+&"RESET": SubResource("Animation_2i7oq"),
+&"start_shift": SubResource("Animation_q7uhc")
+}
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_tereu"]
+shader = ExtResource("2_2i7oq")
+shader_parameter/STATIC = false
+shader_parameter/amount = 1.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_earf2"]
+atlas = ExtResource("7_q7uhc")
+region = Rect2(0, 0, 500, 500)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2ih6d"]
+atlas = ExtResource("8_7n01s")
+region = Rect2(0, 0, 500, 500)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uhh1j"]
+atlas = ExtResource("9_vi5m7")
+region = Rect2(0, 0, 500, 500)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j45hu"]
+atlas = ExtResource("10_0mth8")
+region = Rect2(0, 0, 500, 500)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3hrbk"]
+atlas = ExtResource("11_ddk3q")
+region = Rect2(0, 0, 500, 500)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ljwgv"]
+atlas = ExtResource("12_akjjk")
+region = Rect2(0, 0, 500, 500)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_34ifm"]
+atlas = ExtResource("13_ahq5o")
+region = Rect2(0, 0, 500, 500)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bai3y"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_earf2")
+}],
+"loop": true,
+"name": &"1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2ih6d")
+}],
+"loop": true,
+"name": &"12",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uhh1j")
+}],
+"loop": true,
+"name": &"2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j45hu")
+}],
+"loop": true,
+"name": &"3",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3hrbk")
+}],
+"loop": true,
+"name": &"4",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ljwgv")
+}],
+"loop": true,
+"name": &"5",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_34ifm")
+}],
+"loop": true,
+"name": &"6",
+"speed": 5.0
+}]
+
+[sub_resource type="Environment" id="Environment_jka67"]
+background_energy_multiplier = 0.05
+background_intensity = 11481.5
+ambient_light_energy = 0.41
+reflected_light_source = 2
+tonemap_mode = 4
+ssr_fade_in = 0.424264
+glow_enabled = true
+glow_normalized = true
+glow_intensity = 0.0
+glow_strength = 1.19
+fog_light_color = Color(0.0784314, 0.0901961, 0, 1)
+fog_light_energy = 0.1
+fog_sky_affect = 0.926
+fog_height = -56.89
+fog_height_density = 0.8889
+adjustment_brightness = 0.93
+adjustment_contrast = 1.22
+adjustment_saturation = 0.7
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wc5p8"]
+albedo_texture = ExtResource("8_gtm6x")
+
+[sub_resource type="BoxMesh" id="BoxMesh_jsk3o"]
+size = Vector3(300, 1, 300)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_2i7oq"]
+radius = 2.139
+height = 7.558
+
+[node name="Main_office" type="Node3D"]
+script = ExtResource("1_35clb")
+
+[node name="Oficina" parent="." instance=ExtResource("2_khgtf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 39, 24)
+
+[node name="Node3D" type="Node3D" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="Node3D"]
+z_as_relative = false
+offset_right = 1156.0
+offset_bottom = 648.0
+mouse_filter = 2
+color = Color(0, 0, 0, 0)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Node3D"]
+libraries = {
+&"": SubResource("AnimationLibrary_khgtf")
+}
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="Node3D"]
+visible = false
+offset_left = 342.0
+offset_top = -2.0
+offset_right = 822.0
+offset_bottom = 638.0
+stream = ExtResource("3_2i7oq")
+expand = true
+loop = true
+
+[node name="SubViewport" type="SubViewport" parent="."]
+handle_input_locally = false
+size = Vector2i(512, 450)
+render_target_update_mode = 4
+
+[node name="Security_camera" type="Camera3D" parent="SubViewport"]
+transform = Transform3D(0.48481, -0.274624, 0.830386, 0, 0.949426, 0.313993, -0.87462, -0.152227, 0.460291, 740.09, 124.06, 380.277)
+fov = 72.1
+near = 0.058
+
+[node name="ColorRect" type="ColorRect" parent="SubViewport"]
+modulate = Color(1, 1, 1, 0.517647)
+material = SubResource("ShaderMaterial_tereu")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Timer_desactivate_static" type="Timer" parent="SubViewport"]
+wait_time = 0.25
+ignore_time_scale = true
+
+[node name="Ui" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -54, 0)
+
+[node name="CanvasLayer" parent="Ui" instance=ExtResource("4_p8714")]
+
+[node name="cameras_view" parent="Ui/CanvasLayer" instance=ExtResource("5_6uyba")]
+transform = Transform3D(0.5, 0, 0, 0, -0.499924, 0.00872623, 0, -0.00872623, -0.499924, 630.773, 115, 401)
+
+[node name="Hours System" type="Node2D" parent="Ui"]
+modulate = Color(1, 1, 1, 0)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Ui/Hours System"]
+position = Vector2(48, 69)
+scale = Vector2(0.3, 0.3)
+sprite_frames = SubResource("SpriteFrames_bai3y")
+animation = &"12"
+frame_progress = 0.897221
+
+[node name="Am" type="Sprite2D" parent="Ui/Hours System"]
+position = Vector2(172, 69)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("14_xfeuu")
+
+[node name="Player pov" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 627.773, 145, 424.212)
+fov = 66.2
+near = 0.038
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(2.25393, 0.109423, -0.991516, 0, 2.0885, 0.209057, 1.29607, -0.190293, 1.7243, 669.827, 135.566, 335.921)
+modulate = Color(0.53, 0.53, 0.53, 0.309804)
+texture_filter = 1
+texture = ExtResource("8_p8714")
+
+[node name="Lights" type="Node3D" parent="."]
+
+[node name="SpotLight3D" type="OmniLight3D" parent="Lights"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 621.258, 262.761, 276.839)
+rotation_edit_mode = 1
+layers = 1048575
+light_intensity_lumens = 100.0
+light_temperature = 10845.0
+light_color = Color(0.976471, 1, 1, 1)
+light_energy = 10.578
+light_indirect_energy = 5.833
+light_volumetric_fog_energy = 7.5
+light_size = 0.386
+light_specular = 0.8
+shadow_enabled = true
+shadow_blur = 5.0
+distance_fade_begin = 62.63
+distance_fade_shadow = 52.7
+distance_fade_length = 1299.9
+omni_range = 335.521
+omni_attenuation = 1.034
+omni_shadow_mode = 0
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_jka67")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_6os8p")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 776, 40, 256)
+material_override = SubResource("StandardMaterial3D_wc5p8")
+mesh = SubResource("BoxMesh_jsk3o")
+
+[node name="Rooms" type="Node3D" parent="."]
+
+[node name="Node3D" type="Node3D" parent="Rooms"]
+
+[node name="Marker3D" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3228, 193, 657)
+
+[node name="Animatronics" type="Node3D" parent="."]
+
+[node name="animatronic_1" parent="Animatronics" instance=ExtResource("9_vhv01")]
+
+[node name="Teclas" parent="." instance=ExtResource("10_5j74h")]
+visible = false
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
+ignore_time_scale = true
+
+[node name="Timer_jumscare" type="Timer" parent="."]
+wait_time = 3.0
+ignore_time_scale = true
+
+[node name="Phone_guy" type="AudioStreamPlayer" parent="."]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_khgtf")
+volume_db = -7.615
+autoplay = true
+parameters/looping = true
+
+[node name="animatronics" type="Node3D" parent="."]
+transform = Transform3D(15, 0, 25.9808, 0, 30, 0, -25.9808, 0, 15, 680, 168, 17)
+
+[node name="animatronic_2" type="MeshInstance3D" parent="animatronics"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.76667)
+visible = false
+mesh = SubResource("CapsuleMesh_2i7oq")
+skeleton = NodePath("../..")
+
+[node name="animatronic_1" type="MeshInstance3D" parent="animatronics"]
+visible = false
+mesh = SubResource("CapsuleMesh_2i7oq")
+skeleton = NodePath("../..")
+
+[connection signal="animation_finished" from="Node3D/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+[connection signal="timeout" from="SubViewport/Timer_desactivate_static" to="." method="_on_timer_desactivate_static_timeout"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="Timer_jumscare" to="." method="_on_timer_jumscare_timeout"]

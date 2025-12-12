@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://s4qt87lb2qi1"
+path="res://.godot/imported/FNAF - 6 AM sound.mp3-32c93fb0c6fbc259b5e1c35f1a756f1b.mp3str"
+
+[deps]
+
+source_file="res://art/Sound_effects/FNAF - 6 AM sound.mp3"
+dest_files=["res://.godot/imported/FNAF - 6 AM sound.mp3-32c93fb0c6fbc259b5e1c35f1a756f1b.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

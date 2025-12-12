@@ -1,0 +1,38 @@
+[remap]
+
+importer="texture"
+type="CompressedTexture2D"
+uid="uid://5cg6uvwb2fpo"
+path.s3tc="res://.godot/imported/office_41.jpg-80d2f9f85007cce68a40a37a52881482.s3tc.ctex"
+metadata={
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
+}
+generator_parameters={
+"md5": "802309eb7b773c5e0af1019be962ca84"
+}
+
+[deps]
+
+source_file="res://art/office_41.jpg"
+dest_files=["res://.godot/imported/office_41.jpg-80d2f9f85007cce68a40a37a52881482.s3tc.ctex"]
+
+[params]
+
+compress/mode=2
+compress/high_quality=false
+compress/lossy_quality=0.7
+compress/hdr_compression=1
+compress/normal_map=0
+compress/channel_pack=0
+mipmaps/generate=true
+mipmaps/limit=-1
+roughness/mode=0
+roughness/src_normal=""
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/normal_map_invert_y=false
+process/hdr_as_srgb=false
+process/hdr_clamp_exposure=false
+process/size_limit=0
+detect_3d/compress_to=0

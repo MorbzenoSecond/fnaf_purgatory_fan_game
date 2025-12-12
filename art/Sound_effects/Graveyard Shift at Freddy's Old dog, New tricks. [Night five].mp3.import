@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bkq53y1awjlc5"
+path="res://.godot/imported/Graveyard Shift at Freddy's Old dog, New tricks. [Night five].mp3-ee474c509e73a9acb28521a4d96b059a.mp3str"
+
+[deps]
+
+source_file="res://art/Sound_effects/Graveyard Shift at Freddy's Old dog, New tricks. [Night five].mp3"
+dest_files=["res://.godot/imported/Graveyard Shift at Freddy's Old dog, New tricks. [Night five].mp3-ee474c509e73a9acb28521a4d96b059a.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

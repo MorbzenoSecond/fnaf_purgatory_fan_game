@@ -1,0 +1,38 @@
+[remap]
+
+importer="texture"
+type="CompressedTexture2D"
+uid="uid://87sm6dlex24p"
+path.s3tc="res://.godot/imported/Oficina_8.jpg-5863a3ac8b579bc4251d9f36c59321b9.s3tc.ctex"
+metadata={
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
+}
+generator_parameters={
+"md5": "e8a458ddca24a454b01e7ce7c9291ab9"
+}
+
+[deps]
+
+source_file="res://art/3D models/rooms/office/Oficina_8.jpg"
+dest_files=["res://.godot/imported/Oficina_8.jpg-5863a3ac8b579bc4251d9f36c59321b9.s3tc.ctex"]
+
+[params]
+
+compress/mode=2
+compress/high_quality=false
+compress/lossy_quality=0.7
+compress/hdr_compression=1
+compress/normal_map=0
+compress/channel_pack=0
+mipmaps/generate=true
+mipmaps/limit=-1
+roughness/mode=0
+roughness/src_normal=""
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/normal_map_invert_y=false
+process/hdr_as_srgb=false
+process/hdr_clamp_exposure=false
+process/size_limit=0
+detect_3d/compress_to=0

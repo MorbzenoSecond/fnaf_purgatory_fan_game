@@ -1,0 +1,46 @@
+[gd_scene load_steps=4 format=3 uid="uid://db2rvhfnjc750"]
+
+[ext_resource type="Script" uid="uid://rc6ltfs16t6y" path="res://Scripts/room_1.gd" id="1_2otyv"]
+[ext_resource type="PackedScene" uid="uid://ctugxa4bg1cq6" path="res://art/office.tscn" id="2_j6sld"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_s102h"]
+radius = 2.139
+height = 7.558
+
+[node name="Room1" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 816, 0)
+script = ExtResource("1_2otyv")
+
+[node name="animatronics" type="Node3D" parent="."]
+transform = Transform3D(30, 0, 0, 0, 30, 0, 0, 0, 30, 1499, 116, 526)
+
+[node name="animatronic_2" type="MeshInstance3D" parent="animatronics"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.76667)
+mesh = SubResource("CapsuleMesh_s102h")
+skeleton = NodePath("../..")
+
+[node name="animatronic_1" type="MeshInstance3D" parent="animatronics"]
+mesh = SubResource("CapsuleMesh_s102h")
+skeleton = NodePath("../..")
+
+[node name="camera_spoot" type="Marker3D" parent="."]
+transform = Transform3D(0.770967, 0.116988, 0.626038, -0.375915, 0.877076, 0.299041, -0.514099, -0.465888, 0.720174, 1897.66, 163.794, 680.8)
+
+[node name="office" parent="." instance=ExtResource("2_j6sld")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -7.06667)
+
+[node name="SpotLight3D2" type="OmniLight3D" parent="."]
+transform = Transform3D(0.741242, -0.415807, 0.526939, 0.297371, 0.907207, 0.297566, -0.601773, -0.0638722, 0.796109, 1711.94, 218.635, 504.813)
+light_temperature = 12875.0
+light_energy = 7.222
+light_indirect_energy = 7.5
+light_volumetric_fog_energy = 10.555
+light_size = 0.348
+light_specular = 3.626
+shadow_enabled = true
+shadow_bias = 2.689
+shadow_normal_bias = 3.054
+shadow_transmittance_bias = 4.907
+omni_range = 1978.44
+omni_attenuation = 1.383
+omni_shadow_mode = 0

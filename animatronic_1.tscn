@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=3 uid="uid://cpbqhi2dy6eb7"]
+
+[ext_resource type="Script" uid="uid://ojfyapillah4" path="res://animatronic_1.gd" id="1_k4lgn"]
+[ext_resource type="Script" uid="uid://dhl81cflsnb36" path="res://Scripts/State_machine.gd" id="2_cru13"]
+[ext_resource type="Script" uid="uid://4a0rdijdk7v0" path="res://in_office_room.gd" id="3_f3j2u"]
+[ext_resource type="Script" uid="uid://xrbtwxyux8sk" path="res://in_desambling_room.gd" id="4_f3j2u"]
+[ext_resource type="Script" uid="uid://c2yldabfx4dnv" path="res://in_main_room.gd" id="5_4cg6r"]
+
+[node name="animatronic_1" type="Node3D"]
+script = ExtResource("1_k4lgn")
+treath_level = 20
+animatronic_id = "animatronic_1"
+
+[node name="State Machine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
+script = ExtResource("2_cru13")
+initial_state = NodePath("InDesamblingRoom")
+
+[node name="InOfficeRoom" type="Node" parent="State Machine"]
+script = ExtResource("3_f3j2u")
+
+[node name="InDesamblingRoom" type="Node" parent="State Machine"]
+script = ExtResource("4_f3j2u")
+
+[node name="InMainRoom" type="Node" parent="State Machine"]
+script = ExtResource("5_4cg6r")
+
+[node name="Timer" type="Timer" parent="State Machine"]
+autostart = true
+ignore_time_scale = true
+
+[connection signal="timeout" from="State Machine/Timer" to="State Machine" method="_on_timer_timeout"]

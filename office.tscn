@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://bscywky5dix86"]
+
+[ext_resource type="PackedScene" uid="uid://ky87rsxytt55" path="res://art/office.glb" id="1_g3mwp"]
+
+[node name="office" instance=ExtResource("1_g3mwp")]

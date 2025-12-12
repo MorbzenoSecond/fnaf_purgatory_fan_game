@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://c0oykjb65gy5y"]
+
+[ext_resource type="Script" uid="uid://cryhcf65lxrl" path="res://rooms/room_3.gd" id="1_5ql8f"]
+[ext_resource type="PackedScene" uid="uid://bi0lpqxgs5u72" path="res://art/3D models/rooms/office/Oficina.glb" id="2_5ql8f"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_ugu2v"]
+radius = 2.139
+height = 7.558
+
+[node name="Room_3" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 547.117, 0)
+script = ExtResource("1_5ql8f")
+
+[node name="Oficina" parent="." instance=ExtResource("2_5ql8f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -501.421, 554.54)
+
+[node name="camera_spoot" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 728.754, -364.275, 860.333)
+
+[node name="animatronics" type="Node3D" parent="."]
+transform = Transform3D(30, 0, 0, 0, 30, 0, 0, 0, 30, 156.557, 129.807, -48.7779)
+
+[node name="animatronic_2" type="MeshInstance3D" parent="animatronics"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.76667)
+mesh = SubResource("CapsuleMesh_ugu2v")
+skeleton = NodePath("../..")
+
+[node name="animatronic_1" type="MeshInstance3D" parent="animatronics"]
+mesh = SubResource("CapsuleMesh_ugu2v")
+skeleton = NodePath("../..")
