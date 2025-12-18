@@ -1,6 +1,8 @@
 extends Node3D
 
 @onready var phone_light = $Phone_light
+@onready var main = $".."
+
 var bump_tween: Tween
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -34,8 +36,10 @@ func _on_door_button_input_event(_camera: Node, event: InputEvent, _event_positi
 			$door/AnimationPlayer.play("Door up")
 			$AudioStreamPlayer3D.play()
 			door_state = true
+			main.front_door_open = false
 		else:
 			$DoorButtonLights.light_color = Color("e7001f")
 			$door/AnimationPlayer.play_backwards("Door up")
 			$AudioStreamPlayer3D.play()
 			door_state = false
+			main.front_door_open = true

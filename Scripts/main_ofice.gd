@@ -9,17 +9,45 @@ var current_room: Node3D
 @onready var phone_guy = $Phone_guy
 @onready var timer_jumpscare = $Timer_jumscare
 @onready var timer_desactivate_static = $SubViewport/Timer_desactivate_static
+var front_door_open = true
 var hours = 0
 
 func _ready() -> void:
+	$Ui/CanvasLayer._show_the_sprite()
 	Input.warp_mouse(Vector2(575, 325))
 	$Node3D/AnimationPlayer.play("start_shift")
 	phone_guy.stream = load(NightData.nights_data[NightData.current_night]["phone_guy_call"])
-	var tex = viewport.get_texture()
-	sprite.texture = tex
+	_camera_on()
 	current_room = $Rooms/Node3D
 	var connection_to_path = $"Ui/CanvasLayer/cameras_view"
 	connection_to_path.goto_room.connect(_on_goto_room)
+
+const TARGET_SIZE := Vector2(3850, 2150)
+
+func set_sprite_texture(texture: Texture2D) -> void:
+	sprite.texture = texture
+
+	var tex_size := texture.get_size()
+
+	sprite.scale = Vector3(
+		TARGET_SIZE.x / tex_size.x,
+		TARGET_SIZE.y / tex_size.y,
+		1.0
+	)
+
+
+func _camera_on():
+	var tex : Texture2D = viewport.get_texture()
+	set_sprite_texture(tex)
+	$Ui/CanvasLayer/cameras_view.camera_on = true
+
+func _ventilation_off():
+	var tex : Texture2D = load("res://art/assets/image.png")
+	set_sprite_texture(tex)
+	$Ui/CanvasLayer/cameras_view.camera_on = false
+
+func _ventilation_update(animatronic_id : String, choosen_path : String, reverse : bool, time_spend : float ):
+	$Ui/CanvasLayer/cameras_view.animatronic_in_ventilation_movement(animatronic_id, choosen_path, reverse, time_spend)
 
 var max_light_reached := false
 var bump_tween: Tween
@@ -87,6 +115,7 @@ func _reload_current_room(path_id):
 
 func _animatronics_in_actual_room():
 	var animatronics_in_room = RoomData.rooms_actual_data["main_room"]["animatronics"].keys()
+	#print(RoomData.rooms_actual_data["main_room"]["animatronics"].keys())
 	for anim in animatronics_in_room:
 		var animatronic_in_room_status = RoomData.rooms_actual_data["main_room"]["animatronics"][anim]
 		var node = $animatronics.find_child(str(anim), true, false)
@@ -94,7 +123,8 @@ func _animatronics_in_actual_room():
 			node.visible = animatronic_in_room_status
 		else:
 			return
-	
+
+
 
 func _on_timer_timeout() -> void:
 	if hours < 6:
@@ -107,6 +137,7 @@ func _on_timer_timeout() -> void:
 
 func finish_the_night():
 	NightData.nights_data[NightData.current_night]["night_status"] = true
+	$Ui/CanvasLayer._hide_the_sprite()
 	var tween = get_tree().create_tween()
 	tween.tween_property($"Player pov", "rotation_degrees", Vector3(0,0,0) ,3)
 	$Ui/CanvasLayer.desactivate_all_functions()

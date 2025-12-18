@@ -1,6 +1,5 @@
-[gd_scene load_steps=21 format=3 uid="uid://bshdom2o35is3"]
+[gd_scene load_steps=25 format=3 uid="uid://bshdom2o35is3"]
 
-[ext_resource type="VideoStream" uid="uid://bvfci2rn0nwpi" path="res://_MConverter.eu_toy-bonnie-getting-attacked-by-withered-bonnie.ogv" id="1_b07fi"]
 [ext_resource type="Script" uid="uid://cs4u7a2rdbg5m" path="res://Scripts/main_menu.gd" id="1_x2ps0"]
 [ext_resource type="Shader" uid="uid://bgr1wy2nnqxgt" path="res://Main_menu.gdshader" id="2_qx8t1"]
 [ext_resource type="Texture2D" uid="uid://ddp4lvsotdeyu" path="res://art/assets/Continue.png" id="3_5kukc"]
@@ -10,7 +9,282 @@
 [ext_resource type="Texture2D" uid="uid://bmp4hecna20hv" path="res://art/assets/new game.png" id="6_8ovav"]
 [ext_resource type="Texture2D" uid="uid://fwolicdxrwy1" path="res://art/assets/Options.png" id="8_56ax1"]
 [ext_resource type="Shader" uid="uid://dm1coocdbc5r" path="res://test.gdshader" id="9_hv5cx"]
+[ext_resource type="Texture2D" uid="uid://dvfnqonjwqnab" path="res://art/assets/SHIFT.png" id="9_ljai8"]
 [ext_resource type="Texture2D" uid="uid://byraxynwspmhs" path="res://art/office_6.jpg" id="10_56ax1"]
+[ext_resource type="Texture2D" uid="uid://dpqnqec03xt2r" path="res://art/assets/SHIFT 5.png" id="10_minev"]
+[ext_resource type="Script" uid="uid://rpo08l4boeuq" path="res://Scripts/Main_menu_camera.gd" id="13_minev"]
+
+[sub_resource type="Animation" id="Animation_r1jqq"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Front_control/Presentacion:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Front_control/Front_color_reck:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("New_game_warning:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Buttons:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Buttons:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Control/Background/Menu:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("New_game_warning:scale")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Music:volume_db")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_56ax1"]
+resource_name = "back_to_game"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Front_control/Front_color_reck:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(1, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0.282353)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1.93333),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"enable_all_buttons"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_ljai8"]
+resource_name = "fade_out"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Front_control/Front_color_reck:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.366667, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.0156863, 0.0156863, 0.0156863, 0), Color(0, 0, 0, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Music:volume_db")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 0.5),
+"update": 0,
+"values": [0.0, -80.0]
+}
+
+[sub_resource type="Animation" id="Animation_hv5cx"]
+resource_name = "new_game_warning"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("New_game_warning:modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(-0.5, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Buttons:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0.623529)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Buttons:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0.95, 0.95)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Control/Background/Menu:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0.815686)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("New_game_warning:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.05, 1.05)]
+}
+
+[sub_resource type="Animation" id="Animation_p42dv"]
+resource_name = "welcome"
+length = 11.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Front_control/Presentacion:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.633333, 2.8, 5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(0.643137, 0.643137, 0.643137, 0.67451), Color(0.643137, 0.643137, 0.643137, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Front_control/Front_color_reck:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 6, 10.9667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 1), Color(0.0156863, 0.0156863, 0.0156863, 0)]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(7.96667),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"enable_all_buttons"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hv5cx"]
+_data = {
+&"RESET": SubResource("Animation_r1jqq"),
+&"back_to_game": SubResource("Animation_56ax1"),
+&"fade_out": SubResource("Animation_ljai8"),
+&"new_game_warning": SubResource("Animation_hv5cx"),
+&"welcome": SubResource("Animation_p42dv")
+}
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_r1jqq"]
 shader = ExtResource("2_qx8t1")
@@ -21,6 +295,9 @@ shader_parameter/mask_brightness = 0.235
 shader_parameter/aspect = 0.524
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_p42dv"]
+
+[sub_resource type="VideoStreamTheora" id="VideoStreamTheora_hv5cx"]
+file = "res://_MConverter.eu_toy-bonnie-getting-attacked-by-withered-bonnie.ogv"
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_qx8t1"]
 shader = ExtResource("2_qx8t1")
@@ -33,148 +310,137 @@ shader_parameter/aspect = 0.566
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ljai8"]
 shader = ExtResource("9_hv5cx")
 shader_parameter/noise = ExtResource("10_56ax1")
-shader_parameter/line_color_a = Color(0, 0, 0, 0)
+shader_parameter/line_color_a = Color(0, 0, 0, 0.184314)
 shader_parameter/line_color_b = Color(0, 0, 0, 1)
-shader_parameter/back_color = Color(0.270588, 0, 0, 0)
-shader_parameter/line_threshold = 0.79
-shader_parameter/speed = 0.1
-shader_parameter/line_length = 1000.0
+shader_parameter/back_color = Color(0.231373, 0.0666667, 0.0156863, 0)
+shader_parameter/line_threshold = 0.81
+shader_parameter/speed = 0.03
+shader_parameter/line_length = 100000.0
 shader_parameter/angle = 90.0
 
-[sub_resource type="Animation" id="Animation_r1jqq"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Presentacion:self_modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("backgorund:color")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(0, 0, 0, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_56ax1"]
-resource_name = "back_to_game"
-length = 3.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("backgorund:color")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(1, 3),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0.282353)]
-}
-
-[sub_resource type="Animation" id="Animation_ljai8"]
-resource_name = "fade_out"
-length = 3.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("backgorund:color")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0.366667, 3),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(0.0156863, 0.0156863, 0.0156863, 0), Color(0, 0, 0, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_p42dv"]
-resource_name = "welcome"
-length = 15.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Presentacion:self_modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0.633333, 2.8, 5),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(0.643137, 0.643137, 0.643137, 0.67451), Color(0.643137, 0.643137, 0.643137, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("backgorund:color")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 6, 15),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 1), Color(0, 0, 0, 0.282353)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_hv5cx"]
-_data = {
-&"RESET": SubResource("Animation_r1jqq"),
-&"back_to_game": SubResource("Animation_56ax1"),
-&"fade_out": SubResource("Animation_ljai8"),
-&"welcome": SubResource("Animation_p42dv")
-}
-
-[node name="Main_menu" type="Node3D"]
+[node name="Main_menu" type="Node2D"]
+position = Vector2(576, 324)
 script = ExtResource("1_x2ps0")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_hv5cx")
+}
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Background" type="ColorRect" parent="Control"]
 modulate = Color(0.674815, 0.674815, 0.674815, 1)
-self_modulate = Color(0.168627, 0.168627, 0.168627, 0.819608)
+self_modulate = Color(0.168627, 0.168627, 0.168627, 0.827451)
 show_behind_parent = true
 material = SubResource("ShaderMaterial_r1jqq")
-offset_right = 1152.0
-offset_bottom = 648.0
-color = Color(0.193737, 0.164934, 0.120017, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+metadata/_edit_use_anchors_ = true
 
-[node name="Menu" type="Sprite2D" parent="ColorRect"]
-position = Vector2(576, 324)
+[node name="Menu" type="TextureRect" parent="Control/Background"]
+layout_mode = 1
+anchors_preset = -1
+offset_left = -576.0
+offset_top = -324.0
+offset_right = 704.0
+offset_bottom = 396.0
 scale = Vector2(0.9, 0.9)
 texture = ExtResource("3_hv5cx")
+expand_mode = 5
+metadata/_edit_use_anchors_ = true
 
-[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="ColorRect"]
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="Control/Background"]
 visible = false
 material = SubResource("ShaderMaterial_p42dv")
 layout_mode = 0
 offset_right = 1151.0
 offset_bottom = 650.0
-stream = ExtResource("1_b07fi")
+stream = SubResource("VideoStreamTheora_hv5cx")
 autoplay = true
 expand = true
 loop = true
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("4_5kukc")
-autoplay = true
+[node name="Buttons" type="Control" parent="."]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
 
-[node name="nights, number" type="Label" parent="."]
-offset_left = 56.0
-offset_top = 416.0
-offset_right = 313.0
-offset_bottom = 461.0
+[node name="Options_button" type="Button" parent="Buttons"]
+layout_mode = 0
+offset_left = -91.0
+offset_top = 104.0
+offset_right = 917.0
+offset_bottom = 412.0
+scale = Vector2(0.3, 0.3)
+pivot_offset = Vector2(503.333, 153.333)
+disabled = true
+icon = ExtResource("8_56ax1")
+flat = true
+metadata/_edit_use_anchors_ = true
+
+[node name="Continue" type="Button" parent="Buttons"]
+layout_mode = 0
+offset_left = -921.0
+offset_top = 11.0
+offset_right = 87.0
+offset_bottom = 319.0
+scale = Vector2(0.3, 0.3)
+pivot_offset = Vector2(503.333, 153.333)
+theme_override_font_sizes/font_size = 40
+disabled = true
+icon = ExtResource("3_5kukc")
+flat = true
+icon_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="new_game_button" type="Button" parent="Buttons"]
+layout_mode = 0
+offset_left = -915.0
+offset_top = 101.0
+offset_right = 93.0
+offset_bottom = 409.0
+scale = Vector2(0.3, 0.3)
+pivot_offset = Vector2(503.333, 153.333)
+disabled = true
+icon = ExtResource("6_8ovav")
+flat = true
+metadata/_edit_use_anchors_ = true
+
+[node name="nights, number" type="Label" parent="Buttons"]
+layout_mode = 0
+offset_left = -552.0
+offset_top = 81.0
+offset_right = -295.0
+offset_bottom = 126.0
 theme_override_font_sizes/font_size = 32
 text = "Noche numero..."
+metadata/_edit_use_anchors_ = true
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_5kukc")
+autoplay = true
 
 [node name="Tittle" type="Sprite2D" parent="."]
 visible = false
@@ -183,66 +449,107 @@ position = Vector2(576, 88)
 scale = Vector2(0.7, 0.7)
 texture = ExtResource("5_8ovav")
 
-[node name="Button" type="Button" parent="."]
-offset_left = 48.0
-offset_top = 552.0
-offset_right = 1056.0
-offset_bottom = 860.0
-scale = Vector2(0.3, 0.3)
-icon = ExtResource("6_8ovav")
-flat = true
+[node name="New_game_warning" type="Control" parent="."]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
 
-[node name="Continue" type="Button" parent="."]
-offset_left = 48.0
-offset_top = 472.0
-offset_right = 1056.0
-offset_bottom = 780.0
+[node name="Label" type="Label" parent="New_game_warning"]
+layout_mode = 0
+offset_left = -417.0
+offset_top = -61.0
+offset_right = 435.0
+theme_override_font_sizes/font_size = 44
+text = "¿Seguro que quieres reiniciar la partida?"
+metadata/_edit_use_anchors_ = true
+
+[node name="cancel" type="Button" parent="New_game_warning"]
+layout_mode = 0
+offset_left = -377.0
+offset_top = -96.0
+offset_right = 631.0
+offset_bottom = 212.0
 scale = Vector2(0.3, 0.3)
+pivot_offset = Vector2(503.333, 153.333)
 theme_override_font_sizes/font_size = 40
-icon = ExtResource("3_5kukc")
+disabled = true
+icon = ExtResource("9_ljai8")
 flat = true
-icon_alignment = 1
+metadata/_edit_use_anchors_ = true
 
-[node name="Options_button" type="Button" parent="."]
-offset_left = 844.0
-offset_top = 552.0
-offset_right = 1852.0
-offset_bottom = 860.0
+[node name="accept" type="Button" parent="New_game_warning"]
+layout_mode = 0
+offset_left = -636.0
+offset_top = -96.0
+offset_right = 372.0
+offset_bottom = 212.0
 scale = Vector2(0.3, 0.3)
-icon = ExtResource("8_56ax1")
+pivot_offset = Vector2(503.333, 150)
+theme_override_font_sizes/font_size = 40
+disabled = true
+icon = ExtResource("10_minev")
 flat = true
+metadata/_edit_use_anchors_ = true
 
-[node name="backgorund" type="ColorRect" parent="."]
-visible = false
-offset_right = 1151.0
-offset_bottom = 648.0
+[node name="Front_control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Front_color_reck" type="ColorRect" parent="Front_control"]
+layout_mode = 0
+offset_left = -576.0
+offset_top = -324.0
+offset_right = 575.0
+offset_bottom = 324.0
 mouse_filter = 2
 color = Color(0, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
 
-[node name="Lines_effect" type="ColorRect" parent="."]
+[node name="Lines_effect" type="ColorRect" parent="Front_control"]
 material = SubResource("ShaderMaterial_ljai8")
-offset_right = 1152.0
-offset_bottom = 648.0
+layout_mode = 0
+offset_left = -576.0
+offset_top = -324.0
+offset_right = 576.0
+offset_bottom = 324.0
 mouse_filter = 2
 color = Color(0, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_hv5cx")
-}
-
-[node name="Presentacion" type="Label" parent="."]
+[node name="Presentacion" type="Label" parent="Front_control"]
 self_modulate = Color(1, 1, 1, 0)
-offset_left = 295.0
-offset_top = 296.0
-offset_right = 865.0
-offset_bottom = 357.0
+layout_mode = 0
+offset_left = -278.0
+offset_top = -28.0
+offset_right = 292.0
+offset_bottom = 33.0
 theme_override_font_sizes/font_size = 44
 text = "Purgatory team presenta..."
+metadata/_edit_use_anchors_ = true
 
-[connection signal="mouse_entered" from="Continue" to="." method="_on_continue_mouse_entered"]
-[connection signal="pressed" from="Continue" to="." method="_on_button_pressed"]
-[connection signal="toggled" from="Continue" to="." method="_on_continue_toggled"]
-[connection signal="pressed" from="Options_button" to="." method="_on_button_2_pressed"]
-[connection signal="pressed" from="Options_button" to="." method="_on_options_button_pressed"]
+[node name="Camera2D" type="Camera2D" parent="."]
+rotation_smoothing_enabled = true
+editor_draw_drag_margin = true
+script = ExtResource("13_minev")
+
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+[connection signal="pressed" from="Buttons/Options_button" to="." method="_on_options_button_pressed"]
+[connection signal="mouse_entered" from="Buttons/Continue" to="." method="_on_continue_mouse_entered"]
+[connection signal="pressed" from="Buttons/Continue" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Buttons/new_game_button" to="." method="_on_new_game_button_pressed"]
+[connection signal="pressed" from="New_game_warning/cancel" to="." method="_on_cancel_pressed"]
+[connection signal="pressed" from="New_game_warning/accept" to="." method="_on_accept_pressed"]

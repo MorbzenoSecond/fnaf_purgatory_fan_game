@@ -20,11 +20,12 @@ mesh = SubResource("CapsuleMesh_s102h")
 skeleton = NodePath("../..")
 
 [node name="animatronic_1" type="MeshInstance3D" parent="animatronics"]
+visible = false
 mesh = SubResource("CapsuleMesh_s102h")
 skeleton = NodePath("../..")
 
 [node name="camera_spoot" type="Marker3D" parent="."]
-transform = Transform3D(0.770967, 0.116988, 0.626038, -0.375915, 0.877076, 0.299041, -0.514099, -0.465888, 0.720174, 1897.66, 163.794, 680.8)
+transform = Transform3D(0.770967, 0.116988, 0.626038, -0.375915, 0.877076, 0.299041, -0.514099, -0.465888, 0.720174, 1916.66, 163.794, 680.8)
 
 [node name="office" parent="." instance=ExtResource("2_j6sld")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -7.06667)

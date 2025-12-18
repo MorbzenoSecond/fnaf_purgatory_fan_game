@@ -6,6 +6,7 @@ signal goto_main
 @onready var path_id
 @onready var parent = $"../../"
 @onready var sprite = $Sprite3D
+@onready var collision = $CollisionShape3D
 enum room_scene {office_room, desambling_room, rearm_room} 
 @export var roomScene: room_scene = room_scene.office_room
 var room_data =  {

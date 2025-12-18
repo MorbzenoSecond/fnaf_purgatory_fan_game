@@ -26,6 +26,12 @@ var rooms_actual_data = {
 			"animatronic_4" : true
 		},
 	},
+	"ventilations":{
+		"animatronics" : {
+			"animatronic_1" : true,
+			"animatronic_4" : true
+		},
+	},
 }
 
 var current_room = "office_room"

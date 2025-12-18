@@ -2,6 +2,7 @@ extends CanvasLayer
 
 @onready var camera_pad: Node3D = $"cameras_view"
 @onready var player_pov = $"../../Player pov"
+@onready var camera_sprite = $Area2D/Camera_sprite
 var is_oppen = false
 var is_out = true
 var animating = false
@@ -31,10 +32,8 @@ func desactivate_all_functions():
 	for area in get_children():
 		if area is Area2D:
 			area.get_child(0).disabled = true
-			print(area.get_child(0).disabled)
 	await get_tree().process_frame
 	active = false
-	$Area2D/Sprite2D.visible = false
 
 func _on_timer_timeout() -> void:
 	$Timer.stop()
@@ -65,6 +64,8 @@ func _on_timer_timeout() -> void:
 		is_oppen = false
 
 	animating = false
+
+
 
 func _process(delta: float) -> void:
 	if player_pov.rotation.y > max_rotation and rotation_speed > 0:
@@ -120,3 +121,13 @@ func _on_area_2d_down_2_mouse_entered() -> void:
 
 func _on_area_2d_down_2_mouse_exited() -> void:
 	rotation_speed_x += rotation_per_spot_x
+var tween = Tween
+
+func _show_the_sprite():
+	tween = get_tree().create_tween()
+	tween.tween_property(camera_sprite, "modulate", Color("ffffff00"), 3)
+	tween.tween_property(camera_sprite, "modulate", Color("ffffff"), 2)
+
+func _hide_the_sprite():
+	tween = get_tree().create_tween()
+	tween.tween_property(camera_sprite, "modulate", Color("ffffff00"), 2)

@@ -38,6 +38,6 @@ func on_child_transition(state, new_state_name):
 		current_state = new_state
 
 func _on_timer_timeout() -> void:
-	print(current_state)
 	current_state.move()
-	$Timer.start()
+	await get_tree().process_frame
+	print(current_state)

@@ -16,12 +16,17 @@ config/description="fnaf
 config/version="0.0.5"
 run/main_scene="uid://86q8xbx5cdw8"
 config/features=PackedStringArray("4.4")
+run/max_fps=60
 config/icon="uid://dq5pcl65k4h3q"
 
 [autoload]
 
 RoomData="*res://Scripts/autoload/room_data.gd"
 NightData="*res://Scripts/autoload/night_data.gd"
+
+[display]
+
+window/stretch/mode="canvas_items"
 
 [filesystem]
 

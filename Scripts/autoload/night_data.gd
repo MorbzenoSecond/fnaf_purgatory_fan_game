@@ -52,16 +52,28 @@ var nights_data = {
 }
 
 var first_enter:bool = false
-var current_night : String = "night 1"
+var current_night : String = "Night 1"
 
 func get_current_night():
 	for night_name in nights_data.keys():
-		#print(nights_data[night_name]["night_status"])
+		print(nights_data[night_name]["night_status"])
 		if !nights_data[night_name]["night_status"]:
 			current_night = night_name
-			#print(current_night)
+			print("noche actual:", current_night)
 			get_animatronic_treath_levels()
-			break;
+			return
+	current_night = nights_data.keys()[-1]
+
+var time_holding = 0.0
+var max_holding = 5.0
+
+func _process(delta: float) -> void:
+	if Input.is_action_pressed("ui_cancel"):
+		time_holding += delta
+		if time_holding >= max_holding:
+			get_tree().quit()
+	else:
+		time_holding = 0.0
 
 func get_animatronic_treath_levels():
 	var animatronics_in_nights = nights_data[current_night]["animatronics_treath_level"].keys()
@@ -73,9 +85,6 @@ func get_animatronic_treath_levels():
 func set_animatronic_treath_levels(animatronic):
 	return nights_data[current_night]["animatronics_treath_level"][animatronic]
 
-func _ready() -> void:
-	get_current_night()
-	
 const SAVE_PATH = "res://game_file/save_file.json"
 func save():
 	var file = FileAccess.open(SAVE_PATH,FileAccess.WRITE)
@@ -93,3 +102,11 @@ func load_data():
 		nights_data = json
 	else:
 		return
+
+func new_game():
+	for night_name in nights_data.keys():
+		nights_data[night_name]["night_status"] = false
+		print(nights_data[night_name]["night_status"])
+	save()
+	current_night = "Night 1"
+	get_animatronic_treath_levels()

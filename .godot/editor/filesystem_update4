@@ -1,23 +1,19 @@
-res://Main_office.tscn
+res://cuarto.tscn
 res://cuarto.gdshader
 res://art/mob_body.tres
 res://node_3d.gdshader
 res://Main_menu.gdshader
 res://test.gdshader
 res://cameras_view.gdshader
-res://game_file/save_file.json
-res://cuarto.tscn
 res://UI.tscn
 res://cameras_view.tscn
 res://teclas.tscn
-res://camera_button.tscn
 res://rooms/room_2.tscn
-res://Main_menu.tscn
 res://oficina.tscn
 res://rooms/room_3.tscn
-res://office.tscn
 res://rooms/room_1.tscn
 res://animatronic_1.tscn
 res://art/3D models/Objects/door.tscn
-res://Scripts/main_menu.gd
-res://Scripts/main_ofice.gd
+res://animatronic_icon.tscn
+res://Main_office.tscn
+res://Main_menu.tscn

@@ -11,6 +11,7 @@ transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 script = ExtResource("1_k1vnv")
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
+render_priority = 2
 texture = ExtResource("2_rp7og")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]

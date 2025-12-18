@@ -1,14 +1,22 @@
-[gd_scene load_steps=6 format=3 uid="uid://6iwhp1lg78m7"]
+[gd_scene load_steps=11 format=3 uid="uid://6iwhp1lg78m7"]
 
 [ext_resource type="Script" uid="uid://dkqehryyq8i4y" path="res://cameras_view.gd" id="1_gbwbw"]
 [ext_resource type="AudioStream" uid="uid://d3ckbcoxc8ahb" path="res://art/Sound_effects/cameras.mp3" id="4_coq5t"]
 [ext_resource type="Texture2D" uid="uid://cu0j6ecl3vyyy" path="res://art/map.png" id="4_lnbee"]
+[ext_resource type="Texture2D" uid="uid://b0u0wt03htrev" path="res://art/assets/image.png" id="5_coq5t"]
+[ext_resource type="Texture2D" uid="uid://d0aqrhbo56pun" path="res://art/assets/icon.svg" id="6_5f1yy"]
 [ext_resource type="PackedScene" uid="uid://r12ya2e1a5lu" path="res://camera_button.tscn" id="6_updwt"]
+[ext_resource type="PackedScene" uid="uid://hsqgpha4xgy4" path="res://animatronic_icon.tscn" id="7_5f1yy"]
+[ext_resource type="Texture2D" uid="uid://uhv0nwnxtskv" path="res://art/assets/1.png" id="8_os0cb"]
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_lnbee"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_os0cb"]
+size = Vector3(4.46362, 4.03381, 3.10852)
+
+[sub_resource type="BoxMesh" id="BoxMesh_updwt"]
+size = Vector3(39, 26, 1)
 
 [node name="cameras_view" type="Node3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 63.152, 0, -0.464741)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 71.8505, 0, -0.464741)
 script = ExtResource("1_gbwbw")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
@@ -20,13 +28,18 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.0853, 0, 1.74897)
 [node name="OmniLight3D3" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.0482, 0, 0.939521)
 
+[node name="Sprite3D2" type="Sprite3D" parent="."]
+transform = Transform3D(3.5, 0, 0, 0, 3.5, 0, 0, 0, 3.5, -7.00629, 0, -3.10401)
+texture = ExtResource("5_coq5t")
+
 [node name="Sprite3D" type="Sprite3D" parent="."]
-transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 5.50327, -2.73169, 0)
+transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 5.503, -2.732, -3)
 double_sided = false
 alpha_cut = 1
 alpha_scissor_threshold = 0.188
 alpha_hash_scale = 0.0
 texture_filter = 1
+render_priority = 1
 texture = ExtResource("4_lnbee")
 
 [node name="Camera_button2" parent="Sprite3D" instance=ExtResource("6_updwt")]
@@ -40,12 +53,144 @@ roomScene = 1
 [node name="Camera_button" parent="Sprite3D" instance=ExtResource("6_updwt")]
 transform = Transform3D(0.666667, 0, 0, 0, 0.666667, 0, 0, 0, 0.666667, 1.82256, -0.236, 0.5)
 
-[node name="Sprite3D2" type="Sprite3D" parent="."]
-transform = Transform3D(4, 0, 0, 0, 3.33333, 0, 0, 0, 1.66667, -6.667, -0.911, -10.0283)
-pixel_size = 0.0001
-texture_filter = 1
-texture = SubResource("ViewportTexture_lnbee")
-
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("4_coq5t")
 volume_db = 57.091
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.5577, -6.45403, -1.39716)
+shape = SubResource("BoxShape3D_os0cb")
+
+[node name="Sprite3D3" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.7982, -6.45356, -3.103)
+layers = 5
+pixel_size = 0.03
+transparent = false
+double_sided = false
+alpha_scissor_threshold = 0.505
+alpha_hash_scale = 0.97
+texture = ExtResource("6_5f1yy")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.02363, 0, -3.67474)
+mesh = SubResource("BoxMesh_updwt")
+
+[node name="ventilations_points" type="Node3D" parent="."]
+
+[node name="P1" type="Marker3D" parent="ventilations_points"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.7754, 1.28582, -3.103)
+
+[node name="P2" type="Marker3D" parent="ventilations_points"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.4241, 0.12, -3.103)
+
+[node name="P3" type="Marker3D" parent="ventilations_points"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.3072, 0.12, -3.103)
+
+[node name="P4" type="Marker3D" parent="ventilations_points"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.2205, 0.12, -3.103)
+
+[node name="P5" type="Marker3D" parent="ventilations_points"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.0514, 0.12, -3.103)
+
+[node name="P6" type="Marker3D" parent="ventilations_points"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.775, 0.12, -3.103)
+
+[node name="P7" type="Marker3D" parent="ventilations_points"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.424, -0.973, -3.103)
+
+[node name="P8" type="Marker3D" parent="ventilations_points"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.7753, -0.991, -3.103)
+
+[node name="P9" type="Marker3D" parent="ventilations_points"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.6033, -0.990557, -3.103)
+
+[node name="P10" type="Marker3D" parent="ventilations_points"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.8556, -2.11083, -3.103)
+
+[node name="P11" type="Marker3D" parent="ventilations_points"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.424, -2.111, -3.103)
+
+[node name="P12" type="Marker3D" parent="ventilations_points"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.307, -2.111, -3.103)
+
+[node name="P13" type="Marker3D" parent="ventilations_points"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.221, -2.111, -3.103)
+
+[node name="P14" type="Marker3D" parent="ventilations_points"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.051, -2.111, -3.103)
+
+[node name="P15" type="Marker3D" parent="ventilations_points"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.775, -2.111, -3.103)
+
+[node name="P16" type="Marker3D" parent="ventilations_points"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.856, -3.14155, -3.103)
+
+[node name="P17" type="Marker3D" parent="ventilations_points"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.856, -4.18054, -3.103)
+
+[node name="P18" type="Marker3D" parent="ventilations_points"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.856, -5.21663, -3.103)
+
+[node name="P19" type="Marker3D" parent="ventilations_points"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.6211, -5.217, -3.103)
+
+[node name="P20" type="Marker3D" parent="ventilations_points"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.49, -5.217, -3.103)
+
+[node name="P21" type="Marker3D" parent="ventilations_points"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.856, -6.53296, -3.103)
+
+[node name="P22" type="Marker3D" parent="ventilations_points"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.49, -6.533, -3.103)
+
+[node name="P23" type="Marker3D" parent="ventilations_points"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.7897, -6.533, -3.103)
+
+[node name="P24" type="Marker3D" parent="ventilations_points"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.856, -7.76913, -3.103)
+
+[node name="P25" type="Marker3D" parent="ventilations_points"]
+transform = Transform3D(1, 0, 0, 0, 0.998567, -0.0535211, 0, 0.0535211, 0.998567, -19.621, -7.769, -3.103)
+
+[node name="P26" type="Marker3D" parent="ventilations_points"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.49, -7.769, -3.103)
+
+[node name="P27" type="Marker3D" parent="ventilations_points"]
+transform = Transform3D(1, 0, 0, 0, -0.943037, -0.332688, 0, 0.332688, -0.943037, -17.221, -7.769, -3.103)
+
+[node name="P28" type="Marker3D" parent="ventilations_points"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.79, -7.769, -3.103)
+
+[node name="P29" type="Marker3D" parent="ventilations_points"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.6164, -7.769, -3.103)
+
+[node name="Entraces_ventilation_points" type="Node3D" parent="."]
+
+[node name="E1" type="Marker3D" parent="Entraces_ventilation_points"]
+transform = Transform3D(1, 0, 0, 0, 0.999841, 0.0178538, 0, -0.0178538, 0.999841, -14.775, 2.19306, -3.103)
+
+[node name="E2" type="Marker3D" parent="Entraces_ventilation_points"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.376, -0.991, -3.103)
+
+[node name="E3" type="Marker3D" parent="Entraces_ventilation_points"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.9225, -1.29715, -3.103)
+
+[node name="E4" type="Marker3D" parent="Entraces_ventilation_points"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.791, -5.6888, -3.103)
+
+[node name="E5" type="Marker3D" parent="Entraces_ventilation_points"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.3902, -7.77745, -3.103)
+
+[node name="animatronic_icons" type="Node3D" parent="."]
+
+[node name="animatronic_1" parent="animatronic_icons" instance=ExtResource("7_5f1yy")]
+animatronic_id = "animatronic_1"
+sprite_texture = ExtResource("6_5f1yy")
+
+[node name="animatronic_2" parent="animatronic_icons" instance=ExtResource("7_5f1yy")]
+animatronic_id = "animatronic_2"
+sprite_texture = ExtResource("8_os0cb")
+
+[connection signal="input_event" from="Area3D" to="." method="_on_area_3d_input_event"]

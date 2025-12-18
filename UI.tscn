@@ -16,7 +16,8 @@ disable_mode = 2
 position = Vector2(576, 600)
 shape = SubResource("RectangleShape2D_3b2b5")
 
-[node name="Sprite2D" type="Sprite2D" parent="Area2D"]
+[node name="Camera_sprite" type="Sprite2D" parent="Area2D"]
+modulate = Color(1, 1, 1, 0)
 z_index = -10
 position = Vector2(576, 592)
 scale = Vector2(0.3, 0.3)
@@ -74,7 +75,7 @@ polygon = PackedVector2Array(-1, 0, 1155, 0, 1153, 362, 962, 362, 790, 200, 371,
 position = Vector2(0, -103)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D_up_2"]
-polygon = PackedVector2Array(-1, 0, 1155, 0, 1153, 362, 962, 362, 790, 200, 371, 200, 136, 362, 1, 362)
+polygon = PackedVector2Array(-1, 0, 1155, 0, 1153, 362, 962, 362, 790, 200, 448.395, 200, 371, 200, 136, 362, 1, 362)
 
 [node name="Area2D_down_1" type="Area2D" parent="."]
 
@@ -93,7 +94,7 @@ polygon = PackedVector2Array(-1, 0, 1155, 0, 1153, 362, 962, 362, 790, 200, 371,
 [node name="Area2D_right_4" type="Area2D" parent="."]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D_right_4"]
-position = Vector2(1116, -2)
+position = Vector2(1116, 0)
 scale = Vector2(-1, 1)
 polygon = PackedVector2Array(-32, -10, 522, 0, 520, 182, 402, 268, 402, 389, 515, 469, 519, 650, -29, 648)
 
