@@ -23,7 +23,9 @@ func _room_change(new_room: String) -> void:
 
 	# 3. Estado especial para main_room
 	var in_main_room := new_room == "main_room"
-	RoomData.rooms_actual_data["main_room"]["animatronics"][animatronic_id] = in_main_room
+	RoomData.rooms_actual_data["main_room"]["animatronics"
+	
+	][animatronic_id] = in_main_room
 
 	main._animatronics_in_actual_room()
 

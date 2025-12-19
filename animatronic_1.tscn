@@ -8,6 +8,7 @@
 [ext_resource type="Script" uid="uid://8josqusvw8ks" path="res://in_ventilation_e_1_e_2.gd" id="6_hhl65"]
 
 [node name="animatronic_1" type="Node3D"]
+visible = false
 script = ExtResource("1_k4lgn")
 treath_level = 20
 animatronic_id = "animatronic_1"

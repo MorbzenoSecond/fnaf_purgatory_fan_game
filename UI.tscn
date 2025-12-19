@@ -16,6 +16,7 @@ script = ExtResource("1_b3bc3")
 disable_mode = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Open_close_camera"]
+visible = false
 position = Vector2(576, 600)
 shape = SubResource("RectangleShape2D_3b2b5")
 
@@ -26,7 +27,6 @@ scale = Vector2(0.3, 0.3)
 texture = ExtResource("2_3b2b5")
 
 [node name="open_ventilations" type="Area2D" parent="."]
-visible = false
 position = Vector2(1152, 624.3)
 rotation = 3.14159
 
@@ -45,6 +45,7 @@ texture = ExtResource("2_3b2b5")
 wait_time = 0.4
 
 [node name="Camera_movement_areas" type="Node2D" parent="."]
+visible = false
 
 [node name="Area2D_left_1" type="Area2D" parent="Camera_movement_areas"]
 

@@ -54,11 +54,11 @@ func open_camera():
 	camera_tween.tween_property(camera_pad,"position:y", camera_pad.position.y + 30 ,.25)
 	camera_tween.parallel().tween_property(camera_pad,"position:z", camera_pad.position.z + 12 ,.20)
 	camera_tween.parallel().tween_property(camera_pad,"rotation_degrees:x", 0 ,.25)
-	camera_tween.tween_property($open_ventilations, "visible", true, 0)
+	visible_visible($open_ventilations)
 func close_camera():
 	camera_movement(false)
 	is_oppen = false
-	camera_tween.tween_property($open_ventilations, "visible", false, 0)
+	visible_visible($open_ventilations)
 	camera_tween.tween_property(camera_pad,"position:y", camera_pad.position.y - 30 ,.25)
 	camera_tween.parallel().tween_property(camera_pad,"position:z", camera_pad.position.z - 12 ,.20)
 	camera_tween.parallel().tween_property(camera_pad,"rotation_degrees:x", -179 ,.25)
@@ -67,10 +67,10 @@ func close_camera():
 
 #region activate-deactivate functions
 func movement_buttons(status : bool):
-	for area in get_children():
-		if area is Area2D:
-			area.get_child(0).disabled = status
-	await get_tree().process_frame
+	#for area in get_children():
+		#if area is Area2D:
+			#area.get_child(0).disabled = status
+	#await get_tree().process_frame
 	if status: 
 		active = false
 	else:
@@ -80,6 +80,13 @@ func camera_movement(status : bool):
 	for area in $Camera_movement_areas.get_children():
 		if area is Area2D:
 			area.get_child(0).disabled = status
+
+func visible_visible(node):
+	var shade_tween = get_tree().create_tween()
+	if node.visible:
+		shade_tween.tween_property(node, "visible", false, 0)
+	else:
+		shade_tween.tween_property(node, "visible", true, 0)
 #endregion
 
 func _on_timer_timeout() -> void:
@@ -102,6 +109,8 @@ func look_at_the_ventilation(rotation: float) -> void:
 	ventilation_tween = get_tree().create_tween()
 	movement_buttons(true)
 	if ventilation_open:
+		visible_visible($Open_close_camera)
+		camera_movement(false)
 		ventilation_open = false
 		ventilation_tween.tween_property(
 			player_pov,
@@ -110,6 +119,8 @@ func look_at_the_ventilation(rotation: float) -> void:
 			0.25
 		)
 	else:
+		visible_visible($Open_close_camera)
+		camera_movement(true)
 		ventilation_open = true
 		ventilation_tween.tween_property(
 			player_pov,

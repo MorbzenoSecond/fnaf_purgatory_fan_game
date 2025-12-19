@@ -11,3 +11,7 @@ res://ventilations.tscn
 res://Main_office.tscn
 res://animatronic_icon.tscn
 res://cameras_view.gd
+res://animatronic_1.tscn
+res://Scripts/classes/animatronics.gd
+res://in_main_room.gd
+res://in_ventilation_e_1_e_2.gd
