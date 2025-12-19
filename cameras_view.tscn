@@ -184,6 +184,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.791, -5.6888, -3.103)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.3902, -7.77745, -3.103)
 
 [node name="animatronic_icons" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.799202, 0, 0)
 
 [node name="animatronic_1" parent="animatronic_icons" instance=ExtResource("7_5f1yy")]
 animatronic_id = "animatronic_1"

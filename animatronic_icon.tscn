@@ -1,12 +1,11 @@
 [gd_scene load_steps=3 format=3 uid="uid://hsqgpha4xgy4"]
 
 [ext_resource type="Script" uid="uid://dv38wyna6t08o" path="res://Scripts/animatronic_icon.gd" id="1_dul00"]
-[ext_resource type="Texture2D" uid="uid://d0aqrhbo56pun" path="res://art/assets/icon.svg" id="2_eh4q7"]
+[ext_resource type="Texture2D" uid="uid://d0aqrhbo56pun" path="res://art/assets/icon.svg" id="3_a06hv"]
 
 [node name="animatronic_icon" type="Node3D"]
 script = ExtResource("1_dul00")
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
-modulate = Color(1, 1, 1, 0)
-render_priority = 3
-texture = ExtResource("2_eh4q7")
+render_priority = 10
+texture = ExtResource("3_a06hv")

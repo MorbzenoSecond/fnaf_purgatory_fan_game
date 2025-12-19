@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://86q8xbx5cdw8"]
+[gd_scene load_steps=39 format=3 uid="uid://86q8xbx5cdw8"]
 
 [ext_resource type="Script" uid="uid://bec0q5qidwjad" path="res://Scripts/main_ofice.gd" id="1_35clb"]
 [ext_resource type="Shader" uid="uid://chlab8utqvmy8" path="res://node_3d.gdshader" id="2_2i7oq"]
@@ -20,6 +20,7 @@
 [ext_resource type="AudioStream" uid="uid://qd07ufaylwnu" path="res://art/Sound_effects/ambience.mp3" id="12_khgtf"]
 [ext_resource type="Texture2D" uid="uid://br2mhletysbu2" path="res://art/assets/6.png" id="13_ahq5o"]
 [ext_resource type="Texture2D" uid="uid://d02ialuag7kxn" path="res://art/assets/AM.png" id="14_xfeuu"]
+[ext_resource type="PackedScene" uid="uid://cbr0db3acgcxm" path="res://ventilations.tscn" id="21_7n01s"]
 
 [sub_resource type="Animation" id="Animation_35clb"]
 resource_name = "new_animation"
@@ -506,6 +507,9 @@ skeleton = NodePath("../..")
 visible = false
 mesh = SubResource("CapsuleMesh_2i7oq")
 skeleton = NodePath("../..")
+
+[node name="Ventilations" parent="." instance=ExtResource("21_7n01s")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 627.773, 146, 443)
 
 [connection signal="animation_finished" from="Node3D/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="timeout" from="SubViewport/Timer_desactivate_static" to="." method="_on_timer_desactivate_static_timeout"]

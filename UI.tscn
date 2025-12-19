@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://c4hadpu0yequp"]
+[gd_scene load_steps=5 format=3 uid="uid://c4hadpu0yequp"]
 
 [ext_resource type="Script" uid="uid://cisk8rcccdnil" path="res://Scripts/ui.gd" id="1_b3bc3"]
 [ext_resource type="Texture2D" uid="uid://4y2vx6cfw20" path="res://art/assets/cameras_button.png" id="2_3b2b5"]
@@ -6,130 +6,153 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3b2b5"]
 size = Vector2(432, 80)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g6l6n"]
+size = Vector2(87.5, 448.85)
+
 [node name="UI" type="CanvasLayer"]
 script = ExtResource("1_b3bc3")
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Open_close_camera" type="Area2D" parent="."]
 disable_mode = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Open_close_camera"]
 position = Vector2(576, 600)
 shape = SubResource("RectangleShape2D_3b2b5")
 
-[node name="Camera_sprite" type="Sprite2D" parent="Area2D"]
-modulate = Color(1, 1, 1, 0)
+[node name="Camera_sprite" type="Sprite2D" parent="Open_close_camera"]
 z_index = -10
 position = Vector2(576, 592)
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("2_3b2b5")
 
+[node name="open_ventilations" type="Area2D" parent="."]
+visible = false
+position = Vector2(1152, 624.3)
+rotation = 3.14159
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="open_ventilations"]
+position = Vector2(43.5, 313.15)
+shape = SubResource("RectangleShape2D_g6l6n")
+
+[node name="Camera_sprite" type="Sprite2D" parent="open_ventilations"]
+z_index = -10
+position = Vector2(45, 313)
+rotation = 1.5708
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("2_3b2b5")
+
 [node name="Timer" type="Timer" parent="."]
-wait_time = 0.3
+wait_time = 0.4
 
-[node name="Area2D_left_1" type="Area2D" parent="."]
+[node name="Camera_movement_areas" type="Node2D" parent="."]
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D_left_1"]
+[node name="Area2D_left_1" type="Area2D" parent="Camera_movement_areas"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Camera_movement_areas/Area2D_left_1"]
 position = Vector2(-86, 0)
 polygon = PackedVector2Array(-32, -10, 522, 0, 524, 163, 449, 262, 448, 368, 516, 481, 519, 650, -29, 648)
 
-[node name="Area2D_left_2" type="Area2D" parent="."]
+[node name="Area2D_left_2" type="Area2D" parent="Camera_movement_areas"]
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D_left_2"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Camera_movement_areas/Area2D_left_2"]
 position = Vector2(-201, 0)
 polygon = PackedVector2Array(-32, -10, 522, 0, 519, 135, 355, 224, 355, 433, 519, 515, 519, 650, -29, 648)
 
-[node name="Area2D_left_3" type="Area2D" parent="."]
+[node name="Area2D_left_3" type="Area2D" parent="Camera_movement_areas"]
 position = Vector2(1, 0)
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D_left_3"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Camera_movement_areas/Area2D_left_3"]
 position = Vector2(-321, 0)
 polygon = PackedVector2Array(-32, -10, 522, 0, 519, 135, 355, 224, 355, 433, 519, 515, 519, 650, -29, 648)
 
-[node name="Area2D_right_1" type="Area2D" parent="."]
+[node name="Area2D_left_4" type="Area2D" parent="Camera_movement_areas"]
+position = Vector2(1, 0)
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D_right_1"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Camera_movement_areas/Area2D_left_4"]
+position = Vector2(36, 0)
+polygon = PackedVector2Array(-32, -10, 522, 0, 520, 182, 402, 268, 402, 389, 515, 469, 519, 650, -29, 648)
+
+[node name="Area2D_right_1" type="Area2D" parent="Camera_movement_areas"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Camera_movement_areas/Area2D_right_1"]
 position = Vector2(1248, 1)
 scale = Vector2(-1, 1)
 polygon = PackedVector2Array(-32, -10, 522, 0, 527, 168, 447, 272, 452, 399, 529, 478, 519, 650, -29, 648)
 
-[node name="Area2D_right_2" type="Area2D" parent="."]
+[node name="Area2D_right_2" type="Area2D" parent="Camera_movement_areas"]
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D_right_2"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Camera_movement_areas/Area2D_right_2"]
 position = Vector2(1356, 6)
 scale = Vector2(-1, 1)
 polygon = PackedVector2Array(-32, -10, 522, 0, 519, 135, 355, 224, 355, 433, 519, 515, 519, 650, -29, 648)
 
-[node name="Area2D_right_3" type="Area2D" parent="."]
+[node name="Area2D_right_3" type="Area2D" parent="Camera_movement_areas"]
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D_right_3"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Camera_movement_areas/Area2D_right_3"]
 position = Vector2(1472, -1)
 scale = Vector2(-1, 1)
 polygon = PackedVector2Array(-32, -10, 522, 0, 519, 135, 355, 224, 355, 433, 519, 515, 519, 650, -29, 648)
 
-[node name="Area2D_up_1" type="Area2D" parent="."]
+[node name="Area2D_right_4" type="Area2D" parent="Camera_movement_areas"]
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D_up_1"]
-polygon = PackedVector2Array(-1, 0, 1155, 0, 1153, 362, 962, 362, 790, 200, 371, 200, 136, 362, 1, 362)
-
-[node name="Area2D_up_2" type="Area2D" parent="."]
-position = Vector2(0, -103)
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D_up_2"]
-polygon = PackedVector2Array(-1, 0, 1155, 0, 1153, 362, 962, 362, 790, 200, 448.395, 200, 371, 200, 136, 362, 1, 362)
-
-[node name="Area2D_down_1" type="Area2D" parent="."]
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D_down_1"]
-position = Vector2(-1, 651)
-scale = Vector2(1, -1)
-polygon = PackedVector2Array(-1, 0, 1155, 0, 1153, 362, 962, 362, 790, 200, 371, 200, 136, 362, 1, 362)
-
-[node name="Area2D_down_2" type="Area2D" parent="."]
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D_down_2"]
-position = Vector2(-1, 750)
-scale = Vector2(1, -1)
-polygon = PackedVector2Array(-1, 0, 1155, 0, 1153, 362, 962, 362, 790, 200, 371, 200, 136, 362, 1, 362)
-
-[node name="Area2D_right_4" type="Area2D" parent="."]
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D_right_4"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Camera_movement_areas/Area2D_right_4"]
 position = Vector2(1116, 0)
 scale = Vector2(-1, 1)
 polygon = PackedVector2Array(-32, -10, 522, 0, 520, 182, 402, 268, 402, 389, 515, 469, 519, 650, -29, 648)
 
-[node name="Area2D_left_4" type="Area2D" parent="."]
-position = Vector2(1, 0)
+[node name="Area2D_up_1" type="Area2D" parent="Camera_movement_areas"]
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D_left_4"]
-position = Vector2(36, 0)
-polygon = PackedVector2Array(-32, -10, 522, 0, 520, 182, 402, 268, 402, 389, 515, 469, 519, 650, -29, 648)
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Camera_movement_areas/Area2D_up_1"]
+polygon = PackedVector2Array(-1, 0, 1155, 0, 1153, 362, 962, 362, 790, 200, 371, 200, 136, 362, 1, 362)
 
-[connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]
-[connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
-[connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]
+[node name="Area2D_up_2" type="Area2D" parent="Camera_movement_areas"]
+position = Vector2(0, -103)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Camera_movement_areas/Area2D_up_2"]
+polygon = PackedVector2Array(-1, 0, 1155, 0, 1153, 362, 962, 362, 790, 200, 448.395, 200, 371, 200, 136, 362, 1, 362)
+
+[node name="Area2D_down_1" type="Area2D" parent="Camera_movement_areas"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Camera_movement_areas/Area2D_down_1"]
+position = Vector2(-1, 651)
+scale = Vector2(1, -1)
+polygon = PackedVector2Array(-1, 0, 1155, 0, 1153, 362, 962, 362, 790, 200, 371, 200, 136, 362, 1, 362)
+
+[node name="Area2D_down_2" type="Area2D" parent="Camera_movement_areas"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Camera_movement_areas/Area2D_down_2"]
+position = Vector2(-1, 750)
+scale = Vector2(1, -1)
+polygon = PackedVector2Array(-1, 0, 1155, 0, 1153, 362, 962, 362, 790, 200, 371, 200, 136, 362, 1, 362)
+
+[node name="Timer2" type="Timer" parent="."]
+wait_time = 0.4
+
+[connection signal="mouse_entered" from="Open_close_camera" to="." method="area_camera"]
+[connection signal="mouse_entered" from="open_ventilations" to="." method="look_at_the_ventilation" binds= [-180.0]]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
-[connection signal="mouse_entered" from="Area2D_left_1" to="." method="_on_area_2d_left_1_mouse_entered"]
-[connection signal="mouse_exited" from="Area2D_left_1" to="." method="_on_area_2d_left_1_mouse_exited"]
-[connection signal="mouse_entered" from="Area2D_left_2" to="." method="_on_area_2d_left_1_mouse_entered"]
-[connection signal="mouse_exited" from="Area2D_left_2" to="." method="_on_area_2d_left_1_mouse_exited"]
-[connection signal="mouse_entered" from="Area2D_left_3" to="." method="_on_area_2d_left_1_mouse_entered"]
-[connection signal="mouse_exited" from="Area2D_left_3" to="." method="_on_area_2d_left_1_mouse_exited"]
-[connection signal="mouse_entered" from="Area2D_right_1" to="." method="_on_area_2d_right_1_mouse_entered"]
-[connection signal="mouse_exited" from="Area2D_right_1" to="." method="_on_area_2d_right_1_mouse_exited"]
-[connection signal="mouse_entered" from="Area2D_right_2" to="." method="_on_area_2d_right_1_mouse_entered"]
-[connection signal="mouse_exited" from="Area2D_right_2" to="." method="_on_area_2d_right_1_mouse_exited"]
-[connection signal="mouse_entered" from="Area2D_right_3" to="." method="_on_area_2d_right_1_mouse_entered"]
-[connection signal="mouse_exited" from="Area2D_right_3" to="." method="_on_area_2d_right_1_mouse_exited"]
-[connection signal="mouse_entered" from="Area2D_up_1" to="." method="_on_area_2d_up_1_mouse_entered"]
-[connection signal="mouse_exited" from="Area2D_up_1" to="." method="_on_area_2d_up_1_mouse_exited"]
-[connection signal="mouse_entered" from="Area2D_up_2" to="." method="_on_area_2d_up_2_mouse_entered"]
-[connection signal="mouse_exited" from="Area2D_up_2" to="." method="_on_area_2d_up_2_mouse_exited"]
-[connection signal="mouse_entered" from="Area2D_down_1" to="." method="_on_area_2d_down_1_mouse_entered"]
-[connection signal="mouse_exited" from="Area2D_down_1" to="." method="_on_area_2d_down_1_mouse_exited"]
-[connection signal="mouse_entered" from="Area2D_down_2" to="." method="_on_area_2d_down_2_mouse_entered"]
-[connection signal="mouse_exited" from="Area2D_down_2" to="." method="_on_area_2d_down_2_mouse_exited"]
-[connection signal="mouse_entered" from="Area2D_right_4" to="." method="_on_area_2d_right_1_mouse_entered"]
-[connection signal="mouse_exited" from="Area2D_right_4" to="." method="_on_area_2d_right_1_mouse_exited"]
-[connection signal="mouse_entered" from="Area2D_left_4" to="." method="_on_area_2d_left_1_mouse_entered"]
-[connection signal="mouse_exited" from="Area2D_left_4" to="." method="_on_area_2d_left_1_mouse_exited"]
+[connection signal="mouse_entered" from="Camera_movement_areas/Area2D_left_1" to="." method="_on_area_2d_left_1_mouse_entered"]
+[connection signal="mouse_exited" from="Camera_movement_areas/Area2D_left_1" to="." method="_on_area_2d_left_1_mouse_exited"]
+[connection signal="mouse_entered" from="Camera_movement_areas/Area2D_left_2" to="." method="_on_area_2d_left_1_mouse_entered"]
+[connection signal="mouse_exited" from="Camera_movement_areas/Area2D_left_2" to="." method="_on_area_2d_left_1_mouse_exited"]
+[connection signal="mouse_entered" from="Camera_movement_areas/Area2D_left_3" to="." method="_on_area_2d_left_1_mouse_entered"]
+[connection signal="mouse_exited" from="Camera_movement_areas/Area2D_left_3" to="." method="_on_area_2d_left_1_mouse_exited"]
+[connection signal="mouse_entered" from="Camera_movement_areas/Area2D_left_4" to="." method="_on_area_2d_left_1_mouse_entered"]
+[connection signal="mouse_exited" from="Camera_movement_areas/Area2D_left_4" to="." method="_on_area_2d_left_1_mouse_exited"]
+[connection signal="mouse_entered" from="Camera_movement_areas/Area2D_right_1" to="." method="_on_area_2d_right_1_mouse_entered"]
+[connection signal="mouse_exited" from="Camera_movement_areas/Area2D_right_1" to="." method="_on_area_2d_right_1_mouse_exited"]
+[connection signal="mouse_entered" from="Camera_movement_areas/Area2D_right_2" to="." method="_on_area_2d_right_1_mouse_entered"]
+[connection signal="mouse_exited" from="Camera_movement_areas/Area2D_right_2" to="." method="_on_area_2d_right_1_mouse_exited"]
+[connection signal="mouse_entered" from="Camera_movement_areas/Area2D_right_3" to="." method="_on_area_2d_right_1_mouse_entered"]
+[connection signal="mouse_exited" from="Camera_movement_areas/Area2D_right_3" to="." method="_on_area_2d_right_1_mouse_exited"]
+[connection signal="mouse_entered" from="Camera_movement_areas/Area2D_right_4" to="." method="_on_area_2d_right_1_mouse_entered"]
+[connection signal="mouse_exited" from="Camera_movement_areas/Area2D_right_4" to="." method="_on_area_2d_right_1_mouse_exited"]
+[connection signal="mouse_entered" from="Camera_movement_areas/Area2D_up_1" to="." method="_on_area_2d_up_1_mouse_entered"]
+[connection signal="mouse_exited" from="Camera_movement_areas/Area2D_up_1" to="." method="_on_area_2d_up_1_mouse_exited"]
+[connection signal="mouse_entered" from="Camera_movement_areas/Area2D_up_2" to="." method="_on_area_2d_up_2_mouse_entered"]
+[connection signal="mouse_exited" from="Camera_movement_areas/Area2D_up_2" to="." method="_on_area_2d_up_2_mouse_exited"]
+[connection signal="mouse_entered" from="Camera_movement_areas/Area2D_down_1" to="." method="_on_area_2d_down_1_mouse_entered"]
+[connection signal="mouse_exited" from="Camera_movement_areas/Area2D_down_1" to="." method="_on_area_2d_down_1_mouse_exited"]
+[connection signal="mouse_entered" from="Camera_movement_areas/Area2D_down_2" to="." method="_on_area_2d_down_2_mouse_entered"]
+[connection signal="mouse_exited" from="Camera_movement_areas/Area2D_down_2" to="." method="_on_area_2d_down_2_mouse_exited"]
+[connection signal="timeout" from="Timer2" to="." method="_on_timer_2_timeout"]

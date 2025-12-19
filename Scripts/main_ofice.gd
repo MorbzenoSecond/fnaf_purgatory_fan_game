@@ -9,6 +9,7 @@ var current_room: Node3D
 @onready var phone_guy = $Phone_guy
 @onready var timer_jumpscare = $Timer_jumscare
 @onready var timer_desactivate_static = $SubViewport/Timer_desactivate_static
+@onready var ventilations = $Ventilations
 var front_door_open = true
 var hours = 0
 
@@ -47,6 +48,7 @@ func _ventilation_off():
 	$Ui/CanvasLayer/cameras_view.camera_on = false
 
 func _ventilation_update(animatronic_id : String, choosen_path : String, reverse : bool, time_spend : float ):
+	ventilations.animatronic_in_ventilation_movement(animatronic_id, choosen_path, reverse, time_spend)
 	$Ui/CanvasLayer/cameras_view.animatronic_in_ventilation_movement(animatronic_id, choosen_path, reverse, time_spend)
 
 var max_light_reached := false

@@ -1,11 +1,6 @@
-# room.gd
 extends Node3D
-signal goto_room(path, path_id)
-signal goto_main
-@onready var animatronic_icons = $animatronic_icons.get_children()
-@onready var sound = $AudioStreamPlayer3D
-@onready var main = $"../../.."
 
+@onready var animatronic_icons = $animatronic_icons.get_children()
 var ventilation_paths := {}
 
 func _ready() -> void:
@@ -15,39 +10,13 @@ func _ready() -> void:
 	}
 	await  get_tree().process_frame
 
-func _on_transition_entered(path, path_id):
-	call_deferred("emit_signal", "goto_room", path, path_id)
-	await get_tree().process_frame
-	_check_current_camera(path_id)
 
-func _check_current_camera(path_id):
-	var buttons = $Sprite3D.get_children()
-	for button in buttons:
-		if button.get_path_id() == RoomData.current_room:
-			button.sprite.modulate = "ffaf59"
-		else:
-			button.sprite.modulate = "ffffff"
+func _process(delta: float) -> void:
+	if Input.is_action_pressed("ui_up"):
+		animatronic_in_ventilation_movement("animatronic_1", "E1_E3", false, 7)
+	if Input.is_action_pressed("ui_down"):
+		animatronic_in_ventilation_movement("animatronic_2", "E1_E2", true, 7)
 
-func _on_area_3d_input_event(camera: Node, event: InputEvent, event_position: Vector3, normal: Vector3, shape_idx: int) -> void:
-	if event is InputEventMouse and Input.is_action_just_pressed("izq_click"):
-		choose_tablet_view()
-
-var camera_on = true
-
-func choose_tablet_view():
-	
-	if camera_on:
-		$animatronic_icons.show()
-		$Sprite3D.hide()
-		for button in $Sprite3D.get_children():
-			button.collision.disabled = true
-		main._ventilation_off()
-	else: 
-		$animatronic_icons.hide()
-		$Sprite3D.show()
-		for button in $Sprite3D.get_children():
-			button.collision.disabled = false
-		main._camera_on()
 
 @onready var E1_E2 = [$Entraces_ventilation_points/E1.position, $ventilations_points/P1.position, $ventilations_points/P6.position,
 $ventilations_points/P8.position, $ventilations_points/P9.position, $Entraces_ventilation_points/E2.position]
@@ -56,16 +25,12 @@ $ventilations_points/P8.position, $ventilations_points/P9.position, $Entraces_ve
 $ventilations_points/P6.position, $ventilations_points/P8.position, $ventilations_points/P15.position,
 $ventilations_points/P14.position, $Entraces_ventilation_points/E3.position]
 
-func animatronic_enter_the_ventilation(animatronic_id : String, start_point : String):
-	pass
-
 var ventilation_tween: Tween
 var appear_tween : Tween
 var animatronics_in_ventilation := {}
 
 func animatronic_in_ventilation_movement(animatronic_id : String, choosen_path : String, reverse : bool, time_spend : float ):
 	var path = ventilation_paths.get(choosen_path)
-	print(path)
 	if reverse:
 		path.reverse()
 	
