@@ -16,7 +16,6 @@ script = ExtResource("1_b3bc3")
 disable_mode = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Open_close_camera"]
-visible = false
 position = Vector2(576, 600)
 shape = SubResource("RectangleShape2D_3b2b5")
 
@@ -42,10 +41,9 @@ scale = Vector2(0.3, 0.3)
 texture = ExtResource("2_3b2b5")
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 0.4
+wait_time = 0.35
 
 [node name="Camera_movement_areas" type="Node2D" parent="."]
-visible = false
 
 [node name="Area2D_left_1" type="Area2D" parent="Camera_movement_areas"]
 
@@ -126,34 +124,32 @@ position = Vector2(-1, 750)
 scale = Vector2(1, -1)
 polygon = PackedVector2Array(-1, 0, 1155, 0, 1153, 362, 962, 362, 790, 200, 371, 200, 136, 362, 1, 362)
 
-[node name="Timer2" type="Timer" parent="."]
-wait_time = 0.4
-
 [connection signal="mouse_entered" from="Open_close_camera" to="." method="area_camera"]
+[connection signal="mouse_exited" from="Open_close_camera" to="." method="hold_it"]
 [connection signal="mouse_entered" from="open_ventilations" to="." method="look_at_the_ventilation" binds= [-180.0]]
+[connection signal="mouse_exited" from="open_ventilations" to="." method="hold_it"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
-[connection signal="mouse_entered" from="Camera_movement_areas/Area2D_left_1" to="." method="_on_area_2d_left_1_mouse_entered"]
-[connection signal="mouse_exited" from="Camera_movement_areas/Area2D_left_1" to="." method="_on_area_2d_left_1_mouse_exited"]
-[connection signal="mouse_entered" from="Camera_movement_areas/Area2D_left_2" to="." method="_on_area_2d_left_1_mouse_entered"]
-[connection signal="mouse_exited" from="Camera_movement_areas/Area2D_left_2" to="." method="_on_area_2d_left_1_mouse_exited"]
-[connection signal="mouse_entered" from="Camera_movement_areas/Area2D_left_3" to="." method="_on_area_2d_left_1_mouse_entered"]
-[connection signal="mouse_exited" from="Camera_movement_areas/Area2D_left_3" to="." method="_on_area_2d_left_1_mouse_exited"]
-[connection signal="mouse_entered" from="Camera_movement_areas/Area2D_left_4" to="." method="_on_area_2d_left_1_mouse_entered"]
-[connection signal="mouse_exited" from="Camera_movement_areas/Area2D_left_4" to="." method="_on_area_2d_left_1_mouse_exited"]
-[connection signal="mouse_entered" from="Camera_movement_areas/Area2D_right_1" to="." method="_on_area_2d_right_1_mouse_entered"]
-[connection signal="mouse_exited" from="Camera_movement_areas/Area2D_right_1" to="." method="_on_area_2d_right_1_mouse_exited"]
-[connection signal="mouse_entered" from="Camera_movement_areas/Area2D_right_2" to="." method="_on_area_2d_right_1_mouse_entered"]
-[connection signal="mouse_exited" from="Camera_movement_areas/Area2D_right_2" to="." method="_on_area_2d_right_1_mouse_exited"]
-[connection signal="mouse_entered" from="Camera_movement_areas/Area2D_right_3" to="." method="_on_area_2d_right_1_mouse_entered"]
-[connection signal="mouse_exited" from="Camera_movement_areas/Area2D_right_3" to="." method="_on_area_2d_right_1_mouse_exited"]
-[connection signal="mouse_entered" from="Camera_movement_areas/Area2D_right_4" to="." method="_on_area_2d_right_1_mouse_entered"]
-[connection signal="mouse_exited" from="Camera_movement_areas/Area2D_right_4" to="." method="_on_area_2d_right_1_mouse_exited"]
-[connection signal="mouse_entered" from="Camera_movement_areas/Area2D_up_1" to="." method="_on_area_2d_up_1_mouse_entered"]
-[connection signal="mouse_exited" from="Camera_movement_areas/Area2D_up_1" to="." method="_on_area_2d_up_1_mouse_exited"]
-[connection signal="mouse_entered" from="Camera_movement_areas/Area2D_up_2" to="." method="_on_area_2d_up_2_mouse_entered"]
-[connection signal="mouse_exited" from="Camera_movement_areas/Area2D_up_2" to="." method="_on_area_2d_up_2_mouse_exited"]
-[connection signal="mouse_entered" from="Camera_movement_areas/Area2D_down_1" to="." method="_on_area_2d_down_1_mouse_entered"]
-[connection signal="mouse_exited" from="Camera_movement_areas/Area2D_down_1" to="." method="_on_area_2d_down_1_mouse_exited"]
-[connection signal="mouse_entered" from="Camera_movement_areas/Area2D_down_2" to="." method="_on_area_2d_down_2_mouse_entered"]
-[connection signal="mouse_exited" from="Camera_movement_areas/Area2D_down_2" to="." method="_on_area_2d_down_2_mouse_exited"]
-[connection signal="timeout" from="Timer2" to="." method="_on_timer_2_timeout"]
+[connection signal="mouse_entered" from="Camera_movement_areas/Area2D_left_1" to="." method="rotation_y" binds= [1]]
+[connection signal="mouse_exited" from="Camera_movement_areas/Area2D_left_1" to="." method="rotation_y" binds= [-1]]
+[connection signal="mouse_entered" from="Camera_movement_areas/Area2D_left_2" to="." method="rotation_y" binds= [1]]
+[connection signal="mouse_exited" from="Camera_movement_areas/Area2D_left_2" to="." method="rotation_y" binds= [-1]]
+[connection signal="mouse_entered" from="Camera_movement_areas/Area2D_left_3" to="." method="rotation_y" binds= [1]]
+[connection signal="mouse_exited" from="Camera_movement_areas/Area2D_left_3" to="." method="rotation_y" binds= [-1]]
+[connection signal="mouse_entered" from="Camera_movement_areas/Area2D_left_4" to="." method="rotation_y" binds= [1]]
+[connection signal="mouse_exited" from="Camera_movement_areas/Area2D_left_4" to="." method="rotation_y" binds= [-1]]
+[connection signal="mouse_entered" from="Camera_movement_areas/Area2D_right_1" to="." method="rotation_y" binds= [-1]]
+[connection signal="mouse_exited" from="Camera_movement_areas/Area2D_right_1" to="." method="rotation_y" binds= [1]]
+[connection signal="mouse_entered" from="Camera_movement_areas/Area2D_right_2" to="." method="rotation_y" binds= [-1]]
+[connection signal="mouse_exited" from="Camera_movement_areas/Area2D_right_2" to="." method="rotation_y" binds= [1]]
+[connection signal="mouse_entered" from="Camera_movement_areas/Area2D_right_3" to="." method="rotation_y" binds= [-1]]
+[connection signal="mouse_exited" from="Camera_movement_areas/Area2D_right_3" to="." method="rotation_y" binds= [1]]
+[connection signal="mouse_entered" from="Camera_movement_areas/Area2D_right_4" to="." method="rotation_y" binds= [-1]]
+[connection signal="mouse_exited" from="Camera_movement_areas/Area2D_right_4" to="." method="rotation_y" binds= [1]]
+[connection signal="mouse_entered" from="Camera_movement_areas/Area2D_up_1" to="." method="rotation_x" binds= [1]]
+[connection signal="mouse_exited" from="Camera_movement_areas/Area2D_up_1" to="." method="rotation_x" binds= [-1]]
+[connection signal="mouse_entered" from="Camera_movement_areas/Area2D_up_2" to="." method="rotation_x" binds= [1]]
+[connection signal="mouse_exited" from="Camera_movement_areas/Area2D_up_2" to="." method="rotation_x" binds= [-1]]
+[connection signal="mouse_entered" from="Camera_movement_areas/Area2D_down_1" to="." method="rotation_x" binds= [-1]]
+[connection signal="mouse_exited" from="Camera_movement_areas/Area2D_down_1" to="." method="rotation_x" binds= [1]]
+[connection signal="mouse_entered" from="Camera_movement_areas/Area2D_down_2" to="." method="rotation_x" binds= [-1]]
+[connection signal="mouse_exited" from="Camera_movement_areas/Area2D_down_2" to="." method="rotation_x" binds= [1]]

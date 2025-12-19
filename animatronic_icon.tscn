@@ -7,5 +7,6 @@
 script = ExtResource("1_dul00")
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
+modulate = Color(1, 1, 1, 0)
 render_priority = 10
 texture = ExtResource("3_a06hv")
